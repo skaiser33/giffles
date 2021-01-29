@@ -1,0 +1,28 @@
+body {
+    background: rgb(247, 174, 87);
+    margin: 0;
+    font-family: 'Yatra One', cursive;
+}
+
+.container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    
+}
+
+iframe {
+    border: 10px solid black;
+    border-radius: 10%;
+}
+
+p {
+    font-size: 20px;
+    text-align: center;
+    width: 40%;
+}
+
+#choose {
+    font-size: 17px;
+    color: rgb(1,164,100);
+}

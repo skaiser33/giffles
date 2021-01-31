@@ -1,5 +1,6 @@
 //TEST multiple gif fetch requests (for top 5 results) running simultaneously
-//PULL those gif's into existing IFRAMES
+//RANDOMIZE CHOICE OF PULL FROM SOURCEARRAY
+//PULL those gif's into existing IFRAMES, with temporary initial restriction of exactly 3 words in moviesSourceArray with if statement in order to choose
 //CREATE a button that updates each value in the fetch request to the next gif's [g++]; variable for array index that chooses round of gif's; will need to increment with each bush of "new clues button and reset with each new round 
 
 
@@ -33,32 +34,40 @@
 //TIMER? Modify scoring
 //Sound for correct answer?
 
+//Array filtering and mapping
+const moviesRawArray = ["Hard Day's Night", "Fantastic Mr. Fox", "Muppets Take Manhattan", "Being John Malkovich", "Fight Club", "The Unbearable Lightness Of Being"];
+const countWords = (rawTitle) => {return rawTitle.split(" ").length >= 3};
+const moviesMasterArray = moviesRawArray.filter(countWords);
+const eliminateWords = (masterTitle) => {return masterTitle.replace(/a |an |are |in |is |of |the /gi, "")};
+const moviesSourceArray = moviesMasterArray.map(eliminateWords);
 
+//Buttons DOM
 const category = document.querySelector("select");
 const nextButton = document.getElementById("next");
 const newClueButton = document.getElementById("newClue");
 
-let firstWord = "queen"
-let secondWord = "king"
-let thirdWord = "jack"
+//Variable declarations
+let randomMovieIndex, firstWord, secondWord, thirdWord, requestFirstUrl, gif1Array
+let g = 0; // TO-DO variable for array index that chooses round of gif's; will need to increment with each Push of "new clues button and reset with each new round
 
-let gif1Array
-
-let g = 0; // variable for array index that chooses round of gif's; will need to increment with each bush of "new clues button and reset with each new round
-
-const requestUrl = `https://api.giphy.com/v1/gifs/search?api_key=C45MMlNyrdjBOB9vgOy9BkNBfEhE4UOb&q=${ firstWord }&limit=5&offset=0&lang=en`;
-
-
-//Fetch request from giphy to provide gif for first word 
+//Launches next round of play
 nextButton.addEventListener("click", (e) => {
     e.preventDefault();
-    fetch(`${ requestUrl }`)
+    //Chooses random title
+    randomMovieIndex = Math.floor(Math.random() * moviesSourceArray.length)
+    console.log(moviesSourceArray[randomMovieIndex]) // shows the mapped title
+    //splits mapped title into individual words
+    firstWord = moviesSourceArray[randomMovieIndex].split(" ")[0];
+    secondWord = moviesSourceArray[randomMovieIndex].split(" ")[1];
+    thirdWord = moviesSourceArray[randomMovieIndex].split(" ")[2];
+    requestFirstUrl = `https://api.giphy.com/v1/gifs/search?api_key=C45MMlNyrdjBOB9vgOy9BkNBfEhE4UOb&q=${ firstWord }&limit=5&offset=0&lang=en`
+    //Fetch request from giphy to provide gif for first word 
+    fetch(`${ requestFirstUrl }`)
     .then((response) => {
         return response.json();
     })
     //Feed gif #one embed url into iframe #one
     .then((parsedData) => {
-        //console.log("======>", parsedData.data)//.data[g].embed_url);
         gif1Array = parsedData.data;
         document.querySelector("#one").src = gif1Array[g].embed_url;
     })
@@ -67,11 +76,8 @@ nextButton.addEventListener("click", (e) => {
     });
 })
 
-// console.log("======>", gif1)
-
 //new clues event listener
 newClueButton.addEventListener("click", (e) => {
     g >= 4 ? g = 0 : g++; 
     document.querySelector("#one").src = gif1Array[g].embed_url;
-    console.log(g);
 })

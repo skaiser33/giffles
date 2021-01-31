@@ -14,7 +14,7 @@ chuckButton.addEventListener("click", (e) => {
     })
     .then((parsedData) => {
         console.log("======>", parsedData.data[0].embed_url);
-        document.querySelector("#testing").src = parsedData.data[0].embed_url;
+        document.querySelector("#one").src = parsedData.data[0].embed_url;
 
         // <iframe src="https://giphy.com/embed/l1KVcMMxJJpks23cs" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/thewhiteprincess-season-1-l1KVcMMxJJpks23cs">via GIPHY</a></p>
     })

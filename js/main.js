@@ -1,6 +1,7 @@
 //TEST multiple gif fetch requests (for top 5 results) running simultaneously
 //PULL those gif's into existing IFRAMES
-//CREATE a button that updates each value in the fetch request to the next gif's [g++]; variable for array index that chooses round of gif's; will need to increment with each bush of "new clues button and reset with each new round  
+//CREATE a button that updates each value in the fetch request to the next gif's [g++]; variable for array index that chooses round of gif's; will need to increment with each bush of "new clues button and reset with each new round 
+
 
 // Create/Find arrays of movie titles, book titles, and song titles. Make sure they're in strings.
 // Filter to new "MASTER" array where titles with 3-5 words
@@ -27,6 +28,7 @@
 //CSS FOR MOBILE
 //CASE INSENSITIVITY FOR FETCH REQUESTS and PLAYER INPUT VALUE
 // New Player / Reset button?
+//TOGGLE CLASS NEW CLUE BUTTON TO MAKE INVISIBLE OR REMOVE -- rather than  making g=0?
 //Can I account for typos and still give a correct answer?
 //TIMER? Modify scoring
 //Sound for correct answer?
@@ -34,38 +36,42 @@
 
 const category = document.querySelector("select");
 const nextButton = document.getElementById("next");
-const newButton = document.getElementById("newClue");
+const newClueButton = document.getElementById("newClue");
 
 let firstWord = "queen"
 let secondWord = "king"
 let thirdWord = "jack"
 
-let gif1
+let gif1Array
 
 let g = 0; // variable for array index that chooses round of gif's; will need to increment with each bush of "new clues button and reset with each new round
 
-const requestUrl = `https://api.giphy.com/v1/gifs/search?api_key=C45MMlNyrdjBOB9vgOy9BkNBfEhE4UOb&q=${ secondWord }&limit=5&offset=0&lang=en`;
+const requestUrl = `https://api.giphy.com/v1/gifs/search?api_key=C45MMlNyrdjBOB9vgOy9BkNBfEhE4UOb&q=${ firstWord }&limit=5&offset=0&lang=en`;
 
 
 //Fetch request from giphy to provide gif for first word 
 nextButton.addEventListener("click", (e) => {
     e.preventDefault();
-    fetch(`${requestUrl}`)
+    fetch(`${ requestUrl }`)
     .then((response) => {
         return response.json();
     })
     //Feed gif #one embed url into iframe #one
     .then((parsedData) => {
-        console.log("======>", parsedData.data[g].embed_url);
-        document.querySelector("#one").src = parsedData.data[g].embed_url;
+        //console.log("======>", parsedData.data)//.data[g].embed_url);
+        gif1Array = parsedData.data;
+        document.querySelector("#one").src = gif1Array[g].embed_url;
     })
     .catch((error) => {
         console.error("ERROR: ", error)
     });
 })
 
+// console.log("======>", gif1)
+
 //new clues event listener
-nextButton.addEventListener("click", (e) => {
-    g >= 5 ? g = 0 : g++; 
-    document.querySelector("#one").src = parsedData.data[g].embed_url;
+newClueButton.addEventListener("click", (e) => {
+    g >= 4 ? g = 0 : g++; 
+    document.querySelector("#one").src = gif1Array[g].embed_url;
+    console.log(g);
 })

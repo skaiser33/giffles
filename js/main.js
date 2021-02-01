@@ -23,15 +23,14 @@
 //Toggle class for next round button to make invisible
 //Are all titles the same length or can I count the number of words in the title using the spaces in between? Beware of A/The/Of
 // Favicon!
- //Collapsible instructions (refer to pre-work)
-//HOW WILL GIF SIZING WORK?
 //CSS CLEANUP
 //REFACTOR FETCH REQUESTS INTO A SINGLE FUNCTION WITH NECESSARY PARAMETERS?
 //CSS FOR MOBILE
 //CASE INSENSITIVITY FOR FETCH REQUESTS and PLAYER INPUT VALUE
-// New Player / Reset button?
+
 //TOGGLE CLASS NEW CLUE BUTTON TO MAKE INVISIBLE OR REMOVE -- rather than  making g=0?
-//Can I account for typos and still give a correct answer?
+//Can I account for typos and still give a correct answer? [maybe use an || condition to run the same eliminateWords function on player guess and give as corret if that matches to source file]
+
 //TIMER? Modify scoring
 //Sound for correct answer? Funny gif to make fun of player if they get the wrong answer and celebratory gif if right.
 
@@ -41,15 +40,21 @@
 //GIFs
 //COMPLETE: AUTO RESIZE or FIXED HEIGHT? -- due to embed properties in API, best to just set the same height/width for all iframes and the embedded gif will conform its largest dimension accordingly. 
 
+// WED:
+// Styling
+
+// TUE:
+// Array creation and separate array storage
+// Begin styling
+
 //MONDAY: 
-
-//multiple gifs
-//Test input and score
-
+//Use length of title to display number of iframes. Rather than hiding, should I DOM this? 
+ //Collapsible instructions (refer to pre-work)
+// New Player / Reset button? [just reload website or be more sophisticated?]
 
 
 //Array filtering and mapping
-const moviesRawArray = ["Hard Day's Night", "Fantastic Mr. Fox", "Muppets Take Manhattan", "Being John Malkovich", "Fight Club", "The Unbearable Lightness Of Being"];
+const moviesRawArray = ["Fight Club", "Hard Day's Night", "Fantastic Mr. Fox", "Muppets Take Manhattan", "Being John Malkovich", "Fight Club", "The Unbearable Lightness Of Being", "The Curious Case Of Benjamin Button"];
 const countWords = (rawTitle) => {return rawTitle.split(" ").length >= 3};
 const moviesMasterArray = moviesRawArray.filter(countWords);
 const eliminateWords = (masterTitle) => {return masterTitle.replace(/a |an |are |in |is |of |the /gi, "")};
@@ -66,7 +71,7 @@ const answerInput = document.getElementById("answer");
 const isPlayerCorrect = document.getElementById("is-player-correct");
 
 //Variable declarations
-let randomMovieIndex, firstWord, secondWord, thirdWord, requestFirstUrl, requestSecondUrl, requestThirdUrl, gif1Array, gif2Array, gif3Array, guess
+let randomMovieIndex, titleLength, firstWord, secondWord, thirdWord, requestFirstUrl, requestSecondUrl, requestThirdUrl, gif1Array, gif2Array, gif3Array, guess
 let g = 0; // TO-DO variable for array index that chooses round of gif's; will need to increment with each Push of "new clues button and reset with each new round
 let pScore = 0;
 
@@ -96,6 +101,7 @@ nextButton.addEventListener("click", (e) => {
     randomMovieIndex = Math.floor(Math.random() * moviesSourceArray.length)
     console.log(moviesSourceArray[randomMovieIndex]) // shows the mapped title
     //splits mapped title into individual words
+    titleLength - moviesSourceArray[randomMovieIndex].split(" ").length;
     firstWord = moviesSourceArray[randomMovieIndex].split(" ")[0];
     secondWord = moviesSourceArray[randomMovieIndex].split(" ")[1];
     thirdWord = moviesSourceArray[randomMovieIndex].split(" ")[2];

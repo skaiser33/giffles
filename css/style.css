@@ -11,10 +11,18 @@ body {
     
 }
 
+.gif-container {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+}
+
 iframe {
     border: 10px solid black;
     border-radius: 10%;
     background-color: black;
+    margin: 100px 20px;
+}
 }
 
 p {
@@ -26,7 +34,7 @@ p {
 #answ {
     margin-bottom: 100px;
 }
-#choose {
-    font-size: 17px;
-    color: rgb(1,164,100);
+
+.hide {
+    display: none;
 }

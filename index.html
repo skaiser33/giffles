@@ -15,28 +15,31 @@
         <h1>GIFFLES</h1>
         <h3>A Charades-Style Game</h3>
         <p>Powered by <a href=http://giphy.com target=_blank>Giphy</a></p>
-        <!-- <iframe src="https://giphy.com/embed/Fs8pXeLXuKUGA" width="480" height="262" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p></p> -->
-        <!-- <iframe id="one" title="one" src="" width="480" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
-        <iframe id="one" title="one" src="" width="300" height="200" frameBorder="0" class="giphy-embed"></iframe>
-        <!-- <p><a id="testing" href="https://giphy.com/gifs/thewhiteprincess-season-1-l1KVcMMxJJpks23cs"></a></p> -->
-        <p id="choose">Choose your category:</p>
+        <div class="gif-container">
+            <iframe id="one" title="one" src="" width="300" height="200" frameBorder="0" class="giphy-embed"></iframe>
+            <iframe id="two" title="two" src="" width="300" height="200" frameBorder="0" class="giphy-embed"></iframe>
+            <iframe id="three" title="three" src="" width="300" height="200" frameBorder="0" class="giphy-embed"></iframe>
+        </div>
+        <button id="newClue" class="hide">New Clues Please!</button>
+        <p class="hide" id="is-player-correct"></p>
         
-        <form id="answ">
+        <form id="answ" class="hide">
             <label for="answer">Guess the title:</label>
             <input type="text" id="answer" name="answer">
             <input id="answerButton" type="submit" value="Submit Answer">
         </form>
-        <form>
-                <select name="categories" id="categories">
-                    <option value="movies">Movies</option>
-                    <option value="songs">Songs</option>
-                    <option value="books">Books</option>
-                </select>
-            <input id="next" type="submit" value="Next Round!">
+        <form id="nextRoundForm">
+            <label for="categories">Choose your category:</label>    
+            <select name="categories" id="categories">
+                <option value="movies">Movies</option>
+                <option value="songs">Songs</option>
+                <option value="books">Books</option>
+            </select>
+            <input id="next" type="submit" value="Let's Play Giffles!">
         </form> 
-        <p id="test"></p>
-        <p id="correctAnswer"></p>
-        <button id="newClue">New Clues!</button>
+        <!-- <p id="test"></p>
+        <p id="correctAnswer"></p> -->
+
     </div>  
       
 </body>

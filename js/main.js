@@ -1,4 +1,3 @@
-//here's my info, here's hwat i did, what ig otta do, what's blocking me
 
 //TEST multiple gif fetch requests (for top 5 results) running simultaneously
 
@@ -60,11 +59,14 @@ const moviesSourceArray = moviesMasterArray.map(eliminateWords);
 const category = document.querySelector("select");
 const nextButton = document.getElementById("next");
 const newClueButton = document.getElementById("newClue");
+const answerForm = document.getElementById("answ");
+const nextRoundForm = document.getElementById("nextRoundForm");
 const answerButton = document.getElementById("answerButton");
 const answerInput = document.getElementById("answer");
+const isPlayerCorrect = document.getElementById("is-player-correct");
 
 //Variable declarations
-let randomMovieIndex, firstWord, secondWord, thirdWord, requestFirstUrl, gif1Array, guess
+let randomMovieIndex, firstWord, secondWord, thirdWord, requestFirstUrl, requestSecondUrl, requestThirdUrl, gif1Array, gif2Array, gif3Array, guess
 let g = 0; // TO-DO variable for array index that chooses round of gif's; will need to increment with each Push of "new clues button and reset with each new round
 let pScore = 0;
 
@@ -79,10 +81,17 @@ playerScore.setAttribute('class','playerScore');
 playerScore.innerHTML=`Player: ${ pScore }`;
 scoreContainer.appendChild(playerScore);
 
+isPlayerCorrect.classList.toggle("hide"); 
+
 
 //Launches next round of play
 nextButton.addEventListener("click", (e) => {
     e.preventDefault();
+    nextButton.value = "Let's Play Another Round!"
+    answerForm.classList.toggle("hide");
+    newClueButton.classList.toggle("hide");
+    isPlayerCorrect.classList.toggle("hide");  
+    nextRoundForm.classList.toggle("hide");
     //Chooses random title
     randomMovieIndex = Math.floor(Math.random() * moviesSourceArray.length)
     console.log(moviesSourceArray[randomMovieIndex]) // shows the mapped title
@@ -91,7 +100,10 @@ nextButton.addEventListener("click", (e) => {
     secondWord = moviesSourceArray[randomMovieIndex].split(" ")[1];
     thirdWord = moviesSourceArray[randomMovieIndex].split(" ")[2];
     requestFirstUrl = `https://api.giphy.com/v1/gifs/search?api_key=C45MMlNyrdjBOB9vgOy9BkNBfEhE4UOb&q=${ firstWord }&limit=5&offset=0&lang=en`
-    //Fetch request from giphy to provide gif for first word 
+    requestSecondUrl = `https://api.giphy.com/v1/gifs/search?api_key=C45MMlNyrdjBOB9vgOy9BkNBfEhE4UOb&q=${ secondWord }&limit=5&offset=0&lang=en`
+    requestThirdUrl = `https://api.giphy.com/v1/gifs/search?api_key=C45MMlNyrdjBOB9vgOy9BkNBfEhE4UOb&q=${ thirdWord }&limit=5&offset=0&lang=en`
+    
+    //Fetch request from giphy to provide gif for 1st word 
     fetch(`${ requestFirstUrl }`)
     .then((response) => {
         return response.json();
@@ -99,10 +111,35 @@ nextButton.addEventListener("click", (e) => {
     //Feed gif #one embed url into iframe #one
     .then((parsedData) => {
         gif1Array = parsedData.data;
-        document.querySelector("#one").src = gif1Array[g].embed_url; //THIS WORKS WITHOUT FIXED HEIGHT
-        //document.querySelector("#one").src = gif1Array[g].images.fixed_height.url; //This is an attempt to use a fixed height of 200px
-        console.log(gif1Array[g].images.fixed_height.url);
-        //document.querySelectorAll(".giphy-embed").style.height = gif1Array[g].
+        document.querySelector("#one").src = gif1Array[g].embed_url; 
+    })
+    .catch((error) => {
+        console.error("ERROR: ", error)
+    });
+
+    //Fetch request from giphy to provide gif for 2nd word 
+    fetch(`${ requestSecondUrl }`)
+    .then((response) => {
+        return response.json();
+    })
+    //Feed gif #two embed url into iframe #two
+    .then((parsedData) => {
+        gif2Array = parsedData.data;
+        document.querySelector("#two").src = gif2Array[g].embed_url; 
+    })
+    .catch((error) => {
+        console.error("ERROR: ", error)
+    });
+    
+    //Fetch request from giphy to provide gif for 3rd word 
+    fetch(`${ requestThirdUrl }`)
+    .then((response) => {
+        return response.json();
+    })
+    //Feed gif #three embed url into iframe #three
+    .then((parsedData) => {
+        gif3Array = parsedData.data;
+        document.querySelector("#three").src = gif3Array[g].embed_url;
     })
     .catch((error) => {
         console.error("ERROR: ", error)
@@ -113,6 +150,8 @@ nextButton.addEventListener("click", (e) => {
 newClueButton.addEventListener("click", (e) => {
     g >= 4 ? g = 0 : g++; 
     document.querySelector("#one").src = gif1Array[g].embed_url;
+    document.querySelector("#two").src = gif2Array[g].embed_url;
+    document.querySelector("#three").src = gif3Array[g].embed_url;
 })
 
 //DOES INPUT VALUE MATCH THE MASTER ARRAY INDEX?
@@ -120,13 +159,21 @@ answerButton.addEventListener("click", (e) => {
     e.preventDefault();
     guess = answerInput.value;
     answerInput.value = ""          //clear input
+    answerForm.classList.toggle("hide");
+    newClueButton.classList.toggle("hide");
+    isPlayerCorrect.classList.toggle("hide");  
+    nextRoundForm.classList.toggle("hide");
     //WRITE IF STATEMENT TO MATCH ANSWER (case insensitive), DISPLAY CORRECT/INCORRECT + NEXT ROUND BUTTON, AND INCREASE SCORE IF CORRECT
     if(guess.toLowerCase() === moviesMasterArray[randomMovieIndex].toLowerCase()) { //ADD CASE INSENSITIVITY!
-        console.log('Correct! You earned 100 points, redeemable for food rations in a future dystopian hellscape.');
+        //console.log("Correct! You earned 100 points, redeemable for food rations in a future dystopian hellscape.");
+        isPlayerCorrect.textContent = "Correct! You earned 100 points, redeemable for food rations in a future dystopian hellscape."
+
         pScore += 100
-        playerScore.innerHTML=`Player: ${ pScore }`;
+        playerScore.innerHTML=`Your Score: ${ pScore }`;
     } else {
-        console.log(`Yeah...no. The correct answer was ${ moviesMasterArray[randomMovieIndex] }`);
+        //console.log(`Yeah...no. The correct answer was ${ moviesMasterArray[randomMovieIndex] }.`);
+        isPlayerCorrect.textContent = `Yeah...no. The correct answer was ${ moviesMasterArray[randomMovieIndex] }.`
+
     }    
 
 })

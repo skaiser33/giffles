@@ -1,5 +1,8 @@
+//here's my info, here's hwat i did, what ig otta do, what's blocking me
+
 //TEST multiple gif fetch requests (for top 5 results) running simultaneously
-//RANDOMIZE CHOICE OF PULL FROM SOURCEARRAY
+
+
 //PULL those gif's into existing IFRAMES, with temporary initial restriction of exactly 3 words in moviesSourceArray with if statement in order to choose
 //CREATE a button that updates each value in the fetch request to the next gif's [g++]; variable for array index that chooses round of gif's; will need to increment with each bush of "new clues button and reset with each new round 
 
@@ -18,7 +21,6 @@
 //For incorrect, also display the correct answer with toggleClass on <p> with id #correctAnswer
 
 
- 
 //Toggle class for next round button to make invisible
 //Are all titles the same length or can I count the number of words in the title using the spaces in between? Beware of A/The/Of
 // Favicon!
@@ -32,7 +34,20 @@
 //TOGGLE CLASS NEW CLUE BUTTON TO MAKE INVISIBLE OR REMOVE -- rather than  making g=0?
 //Can I account for typos and still give a correct answer?
 //TIMER? Modify scoring
-//Sound for correct answer?
+//Sound for correct answer? Funny gif to make fun of player if they get the wrong answer and celebratory gif if right.
+
+//ARRAYS
+//COMPLETE: RANDOMIZE CHOICE OF PULL FROM SOURCEARRAY
+
+//GIFs
+//COMPLETE: AUTO RESIZE or FIXED HEIGHT? -- due to embed properties in API, best to just set the same height/width for all iframes and the embedded gif will conform its largest dimension accordingly. 
+
+//MONDAY: 
+
+//multiple gifs
+//Test input and score
+
+
 
 //Array filtering and mapping
 const moviesRawArray = ["Hard Day's Night", "Fantastic Mr. Fox", "Muppets Take Manhattan", "Being John Malkovich", "Fight Club", "The Unbearable Lightness Of Being"];
@@ -45,10 +60,25 @@ const moviesSourceArray = moviesMasterArray.map(eliminateWords);
 const category = document.querySelector("select");
 const nextButton = document.getElementById("next");
 const newClueButton = document.getElementById("newClue");
+const answerButton = document.getElementById("answerButton");
+const answerInput = document.getElementById("answer");
 
 //Variable declarations
-let randomMovieIndex, firstWord, secondWord, thirdWord, requestFirstUrl, gif1Array
+let randomMovieIndex, firstWord, secondWord, thirdWord, requestFirstUrl, gif1Array, guess
 let g = 0; // TO-DO variable for array index that chooses round of gif's; will need to increment with each Push of "new clues button and reset with each new round
+let pScore = 0;
+
+// Create Score Container
+let scoreContainer = document.createElement('div');
+scoreContainer.setAttribute('class','scoreContainer')
+document.body.appendChild(scoreContainer);
+
+// Create Player Score
+let playerScore = document.createElement('div');
+playerScore.setAttribute('class','playerScore');
+playerScore.innerHTML=`Player: ${ pScore }`;
+scoreContainer.appendChild(playerScore);
+
 
 //Launches next round of play
 nextButton.addEventListener("click", (e) => {
@@ -69,7 +99,10 @@ nextButton.addEventListener("click", (e) => {
     //Feed gif #one embed url into iframe #one
     .then((parsedData) => {
         gif1Array = parsedData.data;
-        document.querySelector("#one").src = gif1Array[g].embed_url;
+        document.querySelector("#one").src = gif1Array[g].embed_url; //THIS WORKS WITHOUT FIXED HEIGHT
+        //document.querySelector("#one").src = gif1Array[g].images.fixed_height.url; //This is an attempt to use a fixed height of 200px
+        console.log(gif1Array[g].images.fixed_height.url);
+        //document.querySelectorAll(".giphy-embed").style.height = gif1Array[g].
     })
     .catch((error) => {
         console.error("ERROR: ", error)
@@ -81,3 +114,22 @@ newClueButton.addEventListener("click", (e) => {
     g >= 4 ? g = 0 : g++; 
     document.querySelector("#one").src = gif1Array[g].embed_url;
 })
+
+//DOES INPUT VALUE MATCH THE MASTER ARRAY INDEX?
+answerButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    guess = answerInput.value;
+    answerInput.value = ""          //clear input
+    //WRITE IF STATEMENT TO MATCH ANSWER (case insensitive), DISPLAY CORRECT/INCORRECT + NEXT ROUND BUTTON, AND INCREASE SCORE IF CORRECT
+    if(guess.toLowerCase() === moviesMasterArray[randomMovieIndex].toLowerCase()) { //ADD CASE INSENSITIVITY!
+        console.log('Correct! You earned 100 points, redeemable for food rations in a future dystopian hellscape.');
+        pScore += 100
+        playerScore.innerHTML=`Player: ${ pScore }`;
+    } else {
+        console.log(`Yeah...no. The correct answer was ${ moviesMasterArray[randomMovieIndex] }`);
+    }    
+
+})
+
+
+

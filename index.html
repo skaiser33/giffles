@@ -14,10 +14,18 @@
     <div class="container">
         <h1>GIFFLES</h1>
         <h3>A Charades-Style Game</h3>
+        <p>Powered by <a href=http://giphy.com target=_blank>Giphy</a></p>
         <!-- <iframe src="https://giphy.com/embed/Fs8pXeLXuKUGA" width="480" height="262" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p></p> -->
-        <iframe id="one" src="" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+        <!-- <iframe id="one" title="one" src="" width="480" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
+        <iframe id="one" title="one" src="" width="300" height="200" frameBorder="0" class="giphy-embed"></iframe>
         <!-- <p><a id="testing" href="https://giphy.com/gifs/thewhiteprincess-season-1-l1KVcMMxJJpks23cs"></a></p> -->
         <p id="choose">Choose your category:</p>
+        
+        <form id="answ">
+            <label for="answer">Guess the title:</label>
+            <input type="text" id="answer" name="answer">
+            <input id="answerButton" type="submit" value="Submit Answer">
+        </form>
         <form>
                 <select name="categories" id="categories">
                     <option value="movies">Movies</option>

@@ -14,6 +14,7 @@ body {
 iframe {
     border: 10px solid black;
     border-radius: 10%;
+    background-color: black;
 }
 
 p {
@@ -22,6 +23,9 @@ p {
     width: 40%;
 }
 
+#answ {
+    margin-bottom: 100px;
+}
 #choose {
     font-size: 17px;
     color: rgb(1,164,100);

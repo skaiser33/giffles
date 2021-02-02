@@ -7,7 +7,7 @@
     <script defer src="./js/main.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -38,10 +38,17 @@
             </select>
             <input id="next" type="submit" value="Let's Play Giffles!">
         </form> 
-        <!-- <p id="test"></p>
-        <p id="correctAnswer"></p> -->
-
+        <div >
+            <p class="playerScore">Your Score: 0</p>
+        </div>
     </div>  
-      
+
+    <div class="instructions">
+        <p>How To Play <span class="price"><br />
+        <small>Choose a category and guess the title of the movie, song, or book based on the gifs on display.<br>
+            Each gif corresponds to one word of the title, excluding common articles (like "a" or "the") or prepositions (like "of" or "in").<br>
+            Each word will perform a real time search of the top gifs under that search term on Giphy, so each game of Giffle is a totally unique experience.<br>
+            If you don't like your gifs, just hit the "New Clues Please!" button and receive another set of gifs for the same title. You can ask for new clues up to four times per round.</small></p>
+    </div>
 </body>
 </html>

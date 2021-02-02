@@ -1,28 +1,12 @@
 
-//TEST multiple gif fetch requests (for top 5 results) running simultaneously
-
-
-//PULL those gif's into existing IFRAMES, with temporary initial restriction of exactly 3 words in moviesSourceArray with if statement in order to choose
-//CREATE a button that updates each value in the fetch request to the next gif's [g++]; variable for array index that chooses round of gif's; will need to increment with each bush of "new clues button and reset with each new round 
-
 
 // Create/Find arrays of movie titles, book titles, and song titles. Make sure they're in strings.
 // Filter to new "MASTER" array where titles with 3-5 words
 // Map MASTER arrays to SOURCE arrays that remove any strings "in, of, the, a, an, is, are" etc. Indices between MASTER and SOURCE arrays must match.
 
-// Append/Remove # of iframes based on # of words in SOURCE string [i]
-// Send a fetch request for each word in the SOURCE string [i] and fill iframes 
-
 //Change in category value reloads and sends request from selected array
 
-//Input value submitted by player must match MASTER[i]
-//Announce correct/incorrect and update score (refer to high card lab, look at solutions branch and not just my own)
-//For incorrect, also display the correct answer with toggleClass on <p> with id #correctAnswer
 
-
-//Toggle class for next round button to make invisible
-//Are all titles the same length or can I count the number of words in the title using the spaces in between? Beware of A/The/Of
-// Favicon!
 //CSS CLEANUP
 //REFACTOR FETCH REQUESTS INTO A SINGLE FUNCTION WITH NECESSARY PARAMETERS?
 //CSS FOR MOBILE
@@ -36,24 +20,21 @@
 //Avoid repeats in same game? by modifying all arrays (in which case i'd need to reset each new player) or better solution available?
 
 
-
-
-
 //SCHEDULE:
+// THU:
+// Celebration/taunt gifs for right/wrong answers
+// Timer
+// Avoid repeats
+
 // WED:
 // Styling (start with 3 blank iframes...maybe have a different colored ? in each)
 
 // TUE:
-
+// Favicon!
 // Array creation and separate array storage
+// New Player / Reset button? [just reload website or be more sophisticated?]
 // Solve BenjamIN button issue
 // Begin styling
-
-//MONDAY: 
-//Update new clue button to act according to title length
-//Use length of title to display number of iframes. Rather than hiding, should I DOM this? 
- //Collapsible instructions (refer to pre-work)
-// New Player / Reset button? [just reload website or be more sophisticated?]
 
 
 //Array filtering and mapping
@@ -61,7 +42,7 @@ const moviesMasterArray = ["Adaptation", "Fight Club", "Panic Room", "Boogie Nig
 
 //const countWords = (rawTitle) => {return rawTitle.split(" ").length >= 3}; //THIS WAS AN INITIAL CONSTRAINT FOR TESTING
 //const moviesMasterArray = moviesRawArray.filter(countWords);  //THIS WAS AN INITIAL CONSTRAINT FOR TESTING
-const eliminateWords = (masterTitle) => {return masterTitle.replace(/a |an |are |in |is |of |the /gi, "")};
+const eliminateWords = (masterTitle) => {return masterTitle.replace(/a |an |in |of |the |with /gi, "")};
 const moviesSourceArray = moviesMasterArray.map(eliminateWords);
 
 //Buttons DOM
@@ -73,6 +54,8 @@ const nextRoundForm = document.getElementById("nextRoundForm");
 const answerButton = document.getElementById("answerButton");
 const answerInput = document.getElementById("answer");
 const isPlayerCorrect = document.getElementById("is-player-correct");
+const playerScore = document.querySelector(".playerScore");
+const howToPlay = document.querySelector(".instructions");
 
 //Variable declarations
 let randomMovieIndex, firstWord, secondWord, thirdWord, fourthWord, requestFirstUrl, requestSecondUrl, requestThirdUrl, gif1Array, gif2Array, gif3Array, gif4array, guess
@@ -89,23 +72,19 @@ const getTitle = () => {
     console.log(titleLength);
 }
 
-// Create Score Container
-let scoreContainer = document.createElement('div');
-scoreContainer.setAttribute('class','scoreContainer')
-document.body.appendChild(scoreContainer);
-
-// Create Player Score
-let playerScore = document.createElement('div');
-playerScore.setAttribute('class','playerScore');
-playerScore.innerHTML=`Player: ${ pScore }`;
-scoreContainer.appendChild(playerScore);
-
 isPlayerCorrect.classList.toggle("hide"); 
+
+//Display instructions when clicked
+howToPlay.addEventListener("click", (e) => {
+    howToPlay.classList.toggle('show-description');
+})
+
 
 
 //Launches next round of play
 nextButton.addEventListener("click", (e) => {
     e.preventDefault();
+    g = 0;
     nextButton.value = "Let's Play Another Round!"
     answerForm.classList.toggle("hide");
     newClueButton.classList.toggle("hide");
@@ -203,12 +182,13 @@ nextButton.addEventListener("click", (e) => {
     }    
 })
 
-//new clues event listener
+//new clues event listener -- updates each value in the fetch request to the next gifs [g++]; variable for array index that chooses round of gif's
 newClueButton.addEventListener("click", (e) => {
     g >= 4 ? g = 0 : g++; 
     document.querySelector("#one").src = gif1Array[g].embed_url;
     document.querySelector("#two").src = gif2Array[g].embed_url;
-    document.querySelector("#three").src = gif3Array[g].embed_url;
+    if (titleLength >= 3) document.querySelector("#three").src = gif3Array[g].embed_url;
+    if (titleLength === 4) document.querySelector("#four").src = gif4Array[g].embed_url
 })
 
 //DOES INPUT VALUE MATCH THE MASTER ARRAY INDEX?
@@ -234,6 +214,8 @@ answerButton.addEventListener("click", (e) => {
     }    
 
 })
+
+
 
 
 

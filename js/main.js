@@ -15862,24 +15862,24 @@ const bookTitles = [
 
 //SCHEDULE:
 // THU:
-// Celebration/taunt gifs for right/wrong answers
 // Timer
-// Avoid repeats
 // Cite: https://www.kaggle.com/tmdb/tmdb-movie-metadata, https://www.librarything.com/work/646447, http://www.acclaimedmusic.net/year/alltime_songs_yearsort.htm
+// Avoid repeats
 
 //require.js
 
 // WED:
-// Styling (start with 3 blank iframes...maybe have a different colored ? in each)
+// Styling 
+// Celebration/taunt gifs for right/wrong answers
+//(start with 3 blank iframes...maybe have a different colored ? in each)
 // Refactor! 
     // (create reset function that does all the hiding)
     // (turn queryselectors and getElementByIds into variables where possible, do all instances at once before defining
 
 // TUE:
-// New Player / Reset button? [just reload website or be more sophisticated?]
-// convert to lowercase before mapping to make replacement easier?
+// Can I do an initial function in eliminateWords to check for titles that start or end with The, A, etc.
 // Removed words should appear as text between gifs (a, an, in, of the, to, with)
-// Solve BenjamIN button issue // colons, hyphens, periods, parentheses, ?, !
+// Solve BenjamIN button issue // PUNCTUATION -- colons, hyphens, periods, parentheses, ?, !
 // Begin styling
 // separate array storage
 
@@ -15893,11 +15893,15 @@ let masterArray, sourceArray;
 
 // console.log(masterArray[0])
 
-//const countWords = (rawTitle) => {return rawTitle.split(" ").length >= 3}; //THIS WAS AN INITIAL CONSTRAINT FOR TESTING
-//const masterArray = moviesRawArray.filter(countWords);  //THIS WAS AN INITIAL CONSTRAINT FOR TESTING
-// const eliminateWords = (masterTitle) => {return masterTitle.replace(/a |an |in |of |the |with |. |: |, /gi, "")};
-const eliminateWords = (masterTitle) => {return masterTitle.replace(/a |an |in |of |the |with /gi, "")};
+
+//const eliminateWords = (masterTitle) => {return masterTitle.toLowerCase().replace(/a |an |in |of |the |with /g, "")}; //THIS WORKS...just trying a different version below with spaces on either side
+const eliminateWords = (masterTitle) => {return masterTitle.toLowerCase().replace(/ a | an | in | of | the | with /g, " ").replace(/a |an |in |of |the |with /g, " ")};};
  
+
+//ALTERNATELY...do I lowercase convert then split string into an array initially and use OR || statements to test for punctuation, then iterate through for the "trouble words" and either feed them into text placeholders and remove them from the array, then feed the remaining array (if length is between 2 and 4) into firstWord, secondWord, etc
+//placeholder text could be called pre1, pre2, pre3, pre4...would have to account for consecutive trouble words and concatenating
+//would have to restructure sourceArray idea...
+
 
 //Buttons DOM
 const category = document.querySelector("select");
@@ -16080,7 +16084,7 @@ answerButton.addEventListener("click", (e) => {
     isPlayerCorrect.classList.toggle("hide");  
     nextRoundForm.classList.toggle("hide");
     //WRITE IF STATEMENT TO MATCH ANSWER (case insensitive), DISPLAY CORRECT/INCORRECT + NEXT ROUND BUTTON, AND INCREASE SCORE IF CORRECT
-    if(guess.toLowerCase() === masterArray[randomIndex].toLowerCase() || guess.toLowerCase() === sourceArray[randomIndex].toLowerCase()) { //ADD CASE INSENSITIVITY!
+    if(guess.toLowerCase() === masterArray[randomIndex].toLowerCase() || guess.toLowerCase() === sourceArray[randomIndex]) { //ADD CASE INSENSITIVITY!
         //console.log("Correct! You earned 100 points, redeemable for food rations in a future dystopian hellscape.");
         isPlayerCorrect.textContent = "Correct! You earned 100 points, redeemable for food rations in a future dystopian hellscape."
 

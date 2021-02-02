@@ -1,5 +1,3 @@
-
-
 const bookTitles = [
     "2001: A Space Odyssey",
     "A Bend in the River",
@@ -15873,12 +15871,14 @@ const bookTitles = [
 
 // WED:
 // Styling (start with 3 blank iframes...maybe have a different colored ? in each)
+// Refactor! 
+    // (create reset function that does all the hiding)
+    // (turn queryselectors and getElementByIds into variables where possible, do all instances at once before defining
 
 // TUE:
-// category choice toggles masterArray upon "Next round click"
 // New Player / Reset button? [just reload website or be more sophisticated?]
 // convert to lowercase before mapping to make replacement easier?
-// Removed words should appear as text between gifs 
+// Removed words should appear as text between gifs (a, an, in, of the, to, with)
 // Solve BenjamIN button issue // colons, hyphens, periods, parentheses, ?, !
 // Begin styling
 // separate array storage
@@ -15910,6 +15910,7 @@ const answerInput = document.getElementById("answer");
 const isPlayerCorrect = document.getElementById("is-player-correct");
 const playerScore = document.querySelector(".playerScore");
 const howToPlay = document.querySelector(".instructions");
+const newPlayerButton = document.getElementById("newPlayer");
 
 //Variable declarations
 let randomIndex, firstWord, secondWord, thirdWord, fourthWord, requestFirstUrl, requestSecondUrl, requestThirdUrl, gif1Array, gif2Array, gif3Array, gif4array, guess
@@ -15963,6 +15964,7 @@ nextButton.addEventListener("click", (e) => {
     newClueButton.classList.toggle("hide");
     isPlayerCorrect.classList.toggle("hide");  
     nextRoundForm.classList.toggle("hide");
+    newPlayerButton.classList.remove("hide");
 
      
 
@@ -16068,7 +16070,7 @@ newClueButton.addEventListener("click", (e) => {
     if (titleLength === 4) document.querySelector("#four").src = gif4Array[g].embed_url
 })
 
-//DOES INPUT VALUE MATCH THE MASTER ARRAY INDEX?
+//CHECK PLAYER ANSWER AGAINST THE masterARRAY INDEX
 answerButton.addEventListener("click", (e) => {
     e.preventDefault();
     guess = answerInput.value;
@@ -16078,7 +16080,7 @@ answerButton.addEventListener("click", (e) => {
     isPlayerCorrect.classList.toggle("hide");  
     nextRoundForm.classList.toggle("hide");
     //WRITE IF STATEMENT TO MATCH ANSWER (case insensitive), DISPLAY CORRECT/INCORRECT + NEXT ROUND BUTTON, AND INCREASE SCORE IF CORRECT
-    if(guess.toLowerCase() === masterArray[randomIndex].toLowerCase()) { //ADD CASE INSENSITIVITY!
+    if(guess.toLowerCase() === masterArray[randomIndex].toLowerCase() || guess.toLowerCase() === sourceArray[randomIndex].toLowerCase()) { //ADD CASE INSENSITIVITY!
         //console.log("Correct! You earned 100 points, redeemable for food rations in a future dystopian hellscape.");
         isPlayerCorrect.textContent = "Correct! You earned 100 points, redeemable for food rations in a future dystopian hellscape."
 
@@ -16092,7 +16094,21 @@ answerButton.addEventListener("click", (e) => {
 
 })
 
-
+newPlayerButton.addEventListener("click", (e) => {
+    document.querySelector("#one").src = ""
+    document.querySelector("#two").src = ""
+    document.querySelector("#three").src = ""
+    document.querySelector("#four").src = ""
+    pScore = 0;
+    playerScore.innerHTML=`Your Score: ${ pScore }`;
+    nextButton.value = "Let's Play Giffles!"
+    answerForm.classList.add("hide");
+    newClueButton.classList.add("hide");
+    isPlayerCorrect.classList.add("hide");  
+    nextRoundForm.classList.remove("hide");
+    newPlayerButton.classList.add("hide");  
+    //clear isPlayer
+})
 
 
 

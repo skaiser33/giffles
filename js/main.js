@@ -25,16 +25,19 @@
 // Celebration/taunt gifs for right/wrong answers
 // Timer
 // Avoid repeats
+// Cite: https://www.kaggle.com/tmdb/tmdb-movie-metadata, what else?
 
 // WED:
 // Styling (start with 3 blank iframes...maybe have a different colored ? in each)
 
 // TUE:
-// Favicon!
 // Array creation and separate array storage
 // New Player / Reset button? [just reload website or be more sophisticated?]
-// Solve BenjamIN button issue
+// convert to lowercase before mapping to make replacement easier?
+// Removed words should appear as text between gifs 
+// Solve BenjamIN button issue, colons 
 // Begin styling
+
 
 
 //Array filtering and mapping

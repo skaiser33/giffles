@@ -1855,7 +1855,6 @@ const bookTitles = [
         "Bound",
         "Bound by Honor",
         "Bowfinger",
-        "Bowling for Columbine",
         "Boyhood",
         "Boynton Beach Club",
         "Boys and Girls",
@@ -2267,7 +2266,6 @@ const bookTitles = [
         "Die Hard 2",
         "Die Hard: With a Vengeance",
         "Digimon: The Movie",
-        "Dil Jo Bhi Kahey...",
         "Diner",
         "Dinner for Schmucks",
         "Dinner Rush",
@@ -15837,7 +15835,7 @@ const bookTitles = [
         "Zoo Station",
     ]
     
-const weakWords = ["a", "an", "as", "at", "and", "are", "for", "i", "i'm", "in", "on", "is", "its", "of", "that", "the", "to", "we", "with", "you", "your", "youre"]
+const weakWords = ["&", "...", "a", "an", "as", "at", "and", "are", "for", "i", "i'm", "in", "into", "on", "is", "it", "its", "of", "that", "the", "to", "we", "with", "you", "your", "youre"]
 
 
 
@@ -15865,7 +15863,9 @@ const weakWords = ["a", "an", "as", "at", "and", "are", "for", "i", "i'm", "in",
 
 // TUE:
 //check answer against gifWords.join(" ") as an alt check and maybe use the same OR || to also check for the .replace(/[^\w\s]|_/g, "")
-// Begin styling
+// Style the playerIsCorrect
+// What's the deal with the score and reset button heading too far to the bottom? Make into a div and work with that?
+// Clear iframes when player answer comes up, or maybe make all of the iframes = "Loser"/ "Winner"
 //Can I account for typos and still give a correct answer? [maybe use an || condition to run the same eliminateWords function on player guess and give as corret if that matches to source file]
 // separate array storage
 // import * as myData from "./data.js"; //THIS DOESN'T WORK
@@ -15878,13 +15878,10 @@ let masterArray, sourceArray, titleArray;
 let gifWords = [];
 
 //ELIMINATE eliminateWORDS??????!!!!
-//const eliminateWords = (masterTitle) => {return masterTitle.toLowerCase().replace(/a |an |in |of |the |with /g, "")}; //THIS WORKS...just trying a different version below with spaces on either side
-const eliminateWords = (masterTitle) => {return masterTitle.toLowerCase().replace(/ a | an | in | of | the | with /g, " ").replace(/a |an |in |of |the |with /g, " ")};
+// const eliminateWords = (masterTitle) => {return masterTitle.toLowerCase().replace(/ a | an | in | of | the | with /g, " ").replace(/a |an |in |of |the |with /g, " ")};
  
 
  
-
-
 //Buttons DOM
 const gifContainer = document.querySelector(".gif-container");
 const category = document.querySelector("select");
@@ -15919,6 +15916,28 @@ const clearAll = () => {
     console.log(gifContainer);
     gifWords = []
     titleArray = []
+}
+
+const enlargeGifs = () => {
+    document.getElementById("one").width="300";
+    document.getElementById("two").width="300";
+    document.getElementById("three").width="300";
+    document.getElementById("four").width="300";
+    document.getElementById("one").height="200";
+    document.getElementById("two").height="200";
+    document.getElementById("three").height="200";
+    document.getElementById("four").height="200";
+}
+
+const shrinkGifs = () => {
+    document.getElementById("one").width="200";
+    document.getElementById("two").width="200";
+    document.getElementById("three").width="200";
+    document.getElementById("four").width="200";
+    document.getElementById("one").height="133";
+    document.getElementById("two").height="133";
+    document.getElementById("three").height="133";
+    document.getElementById("four").height="133";
 }
 
 const getTitle = () => {
@@ -15961,9 +15980,6 @@ howToPlay.addEventListener("click", (e) => {
 })
 
 
-
-
-
 //Launches next round of play
 nextButton.addEventListener("click", (e) => {    
     e.preventDefault();
@@ -15994,6 +16010,8 @@ nextButton.addEventListener("click", (e) => {
     while (gifWords.length < 2 || gifWords.length > 4) { // used to be titleLength
         getTitle();
     }
+    //resize iframes for 4 gifs
+    (gifWords.length === 4) ? shrinkGifs() : enlargeGifs();
 
     //firstWord = sourceArray[randomIndex].split(" ")[0]; //[THIS WORKED IN PREVIOUS VERSION]
     requestFirstUrl = `https://api.giphy.com/v1/gifs/search?api_key=C45MMlNyrdjBOB9vgOy9BkNBfEhE4UOb&q=${ gifWords[0] }&limit=5&offset=0&lang=en`

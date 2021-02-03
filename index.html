@@ -6,20 +6,25 @@
     <title>Giffles</title>
     <script defer src="./js/main.js"></script>
     <link rel="stylesheet" href="./css/style.css">
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet"> -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Potta+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&family=Potta+One&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="favicon.png">
 </head>
 
 <body>
-    <div class="container">
+    <header>
         <h1>GIFFLES</h1>
         <h3>A Charades-Style Game</h3>
         <p>Powered by <a href=http://giphy.com target=_blank>Giphy</a></p>
-        <button id="newPlayer" class="hide">New Player / Reset Game</button>
+    </header>  
+    <div class="container">
+          
+
         <div class="gif-container">
             <p id="pre1"></p>
-            <iframe id="one" title="one" src="" width="300" height="200" frameBorder="0" class="giphy-embed"></iframe>
+            <iframe id="one" title="one" src="./images/question-mark.png" width="300" height="200" frameBorder="0" class="giphy-embed"></iframe>
             <p id="pre2"></p>
             <iframe id="two" title="two" src="" width="300" height="200" frameBorder="0" class="giphy-embed"></iframe>
             <p id="pre3"></p>
@@ -45,18 +50,19 @@
             </select>
             <input id="next" type="submit" value="Let's Play Giffles!">
         </form> 
-        <div >
+        <div id="score-and-reset">
             <p class="playerScore">Your Score: 0</p>
+
         </div>
-
+        <button id="newPlayer" class="hide">New Player / Reset Game</button>
     </div>  
-
+    
     <div class="instructions">
         <p>How To Play <span class="price"><br />
-        <small>Choose a category and guess the title of the movie, song, or book based on the gifs on display.<br>
-            Each gif corresponds to one word of the title, excluding common articles (like "a" or "the") or prepositions (like "of" or "in").<br>
-            Each word will perform a real time search of the top gifs under that search term on Giphy, so each game of Giffle is a totally unique experience.<br>
-            If you don't like your gifs, just hit the "New Clues Please!" button and receive another set of gifs for the same title. You can ask for new clues up to four times per round.</small></p>
+        <small>&#x2022 Choose a category and guess the title of the movie, song, or book based on the gifs on display.<br>
+            &#x2022 Each gif corresponds to one word of the title, excluding common articles, prepositions, etc which will be provided free of charge.We'll also help out with punctuation where we can.<br>
+            &#x2022 Each word will perform a real time search of the top gifs under that search term on Giphy, so each game of Giffle is a totally unique experience.<br>
+            &#x2022 If you don't like your gifs, just hit the "New Clues Please!" button and receive another set of gifs for the same title. You can ask for new clues up to four times per round.</small></p>
     </div>
 </body>
 </html>

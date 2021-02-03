@@ -6069,7 +6069,6 @@ const bookTitles = [
         "(There's) Always Something There to Remind Me",
         "(They Long to Be) Close to You",
         "(This Is) The Dream of Evan and Chan",
-        "(Untitled 1)",
         "(We Don't Need This) Fascist Groove Thang",
         "(We're Gonna) Rock Around the Clock",
         "(What Did I Do to Be So) Black and Blue",
@@ -15875,6 +15874,7 @@ const bookTitles = [
 // Refactor! 
     // (create reset function that does all the hiding)
     // (turn queryselectors and getElementByIds into variables where possible, do all instances at once before defining
+    //special characters should be dictated by a variable
 
 // TUE:
 // Can I do an initial function in eliminateWords to check for titles that start or end with The, A, etc.
@@ -15889,18 +15889,69 @@ const bookTitles = [
 
 
 //Array filtering and mapping
-let masterArray, sourceArray;
+let masterArray, sourceArray; 
+let gifWords = [];
 
 // console.log(masterArray[0])
 
 
 //const eliminateWords = (masterTitle) => {return masterTitle.toLowerCase().replace(/a |an |in |of |the |with /g, "")}; //THIS WORKS...just trying a different version below with spaces on either side
-const eliminateWords = (masterTitle) => {return masterTitle.toLowerCase().replace(/ a | an | in | of | the | with /g, " ").replace(/a |an |in |of |the |with /g, " ")};};
+const eliminateWords = (masterTitle) => {return masterTitle.toLowerCase().replace(/ a | an | in | of | the | with /g, " ").replace(/a |an |in |of |the |with /g, " ")};
  
 
 //ALTERNATELY...do I lowercase convert then split string into an array initially and use OR || statements to test for punctuation, then iterate through for the "trouble words" and either feed them into text placeholders and remove them from the array, then feed the remaining array (if length is between 2 and 4) into firstWord, secondWord, etc
 //placeholder text could be called pre1, pre2, pre3, pre4...would have to account for consecutive trouble words and concatenating
-//would have to restructure sourceArray idea...
+//NOW I'M PUSHING THE "GOOD" WORDS INTO gifWords array, checking the length of that, OR...INSTEAD OF CHECKING titleLENGTH i'm checking whether thirdWord and fourthWord !== ""
+//would have to restructure sourceArray idea...would check against gifWords.join(" ") as an alt check and maybe use the same OR || to also check for the .replace(/[^\w\s]|_/g, "")
+
+//do i need to do the same approach for the weakWords or is this unneccessary? I THINK IT's OK BECAUSE puncutation attached to weak words will already get appended to the pre#s
+// maybe do a final punctuation search at the end for meaningful punctuation in the original titleArray like a ? or : and put that in the right spot? 
+
+
+let weakWords = ["a", "an", "as", "and", "are", "for", "i", "i'm", "in", "is", "its", "of", "the", "to", "we", "with", "you", "your", "youre"]
+titleArray = songTitles[50].toLowerCase().split(" ");
+console.log(titleArray);
+
+//Parse through each word of title for words that will be translated into gifs, "weak words" that will not, and punctuation 
+for (let i = 0; i < titleArray.length; i++) {
+    //check for weak words and put between gifs
+    for (let j = 0; j < weakWords.length; j++) {
+        // if ((titleArray[i] || titleArray[i].replace(/[^\w]|_/g, "")) === weakWords[j]){
+        if ((titleArray[i].replace(/[^\w]|_/g, "")) === weakWords[j]){
+            //feed into correct placeholder based on gifWords.length
+            document.getElementById(`pre${ gifWords.length + 1}`).textContent += ` ${ titleArray[i] }`
+            i++;
+        }    
+    }
+    //check for punctuation at start and end of words and put betwen gifs, then put 
+    if (i <= (titleArray.length-1)) {
+        if (titleArray[i].search(/[.,:!?\(\)]/) === 0) {
+            document.getElementById(`pre${ gifWords.length + 1 }`).textContent += ` ${ titleArray[i].charAt(0) }`;
+            gifWords.push(titleArray[i].replace(/[^\w\s]|_/g, ""));
+        } else if (titleArray[i].search(/[.,:!?\(\)]/) === (titleArray[i].length - 1)) {       
+            gifWords.push(titleArray[i].replace(/[^\w\s]|_/g, ""));   
+            document.getElementById(`pre${ gifWords.length + 1 }`).textContent += ` ${ titleArray[i].charAt(titleArray[i].length - 1) }`;  
+        } else {
+            gifWords.push(titleArray[i]);
+        }  
+    }
+}     
+//  CLEAR of gifWords, titleArray, and pre#s on both NEWROUND and RESET...make into a single function
+console.log(gifWords)
+//if gifWords.length
+
+//TO DEAL WITH PUNTUATION, MAYBE DO SOMETHING LIKE THIS BUT USE DIFFERENT METHOD THAN REPLACE
+// str = str.replace(/[^\w\s]|_/g, "")
+//          .replace(/\s+/g, " ");
+// Removes everything except alphanumeric characters and whitespace, then collapses multiple adjacent characters to single spaces.
+
+// Detailed explanation:
+
+// \w is any digit, letter, or underscore.
+// \s is any whitespace.
+// [^\w\s] is anything that's not a digit, letter, whitespace, or underscore.
+// [^\w\s]|_ is the same as #3 except with the underscores added back in.
+
 
 
 //Buttons DOM
@@ -15941,16 +15992,15 @@ howToPlay.addEventListener("click", (e) => {
 
 
 //Launches next round of play
-nextButton.addEventListener("click", (e) => {
-    
+nextButton.addEventListener("click", (e) => {    
     e.preventDefault();
-    // masterArray = bookTitles; //FOR TESTiNG ONLY
-
-    //Sets masterArray based on category selection 
-    // if(category.value === "movies") {
-        
-            // masterArray = movieTitles;
-    // }    
+    //clear last round of gifs
+    document.querySelector("#one").src = ""
+    document.querySelector("#two").src = ""
+    document.querySelector("#three").src = ""
+    document.querySelector("#four").src = "" 
+    gifWords = []
+    //set masterArray by player seleted category
     switch(category.value) {
         case "books":
             masterArray = bookTitles;
@@ -15970,21 +16020,16 @@ nextButton.addEventListener("click", (e) => {
     nextRoundForm.classList.toggle("hide");
     newPlayerButton.classList.remove("hide");
 
-     
-
-    
     //Chooses random title
     getTitle();
     //If title length is too short / too long, pick another movie
-    while (titleLength < 2 || titleLength > 4) {
+    while (titleLength < 2 || titleLength > 4) { // change to gifWords.length
         getTitle();
     }
     
-    //For two words, hide 3rd iframe and spread out the first two
-    //For four words, toggle class "giphy-embed" and condense all of them
 
 
-    firstWord = sourceArray[randomIndex].split(" ")[0];
+    //firstWord = sourceArray[randomIndex].split(" ")[0]; //[THIS WORKED IN PREVIOUS VERSION]
     requestFirstUrl = `https://api.giphy.com/v1/gifs/search?api_key=C45MMlNyrdjBOB9vgOy9BkNBfEhE4UOb&q=${ firstWord }&limit=5&offset=0&lang=en`
     //Fetch request from giphy to provide gif for 1st word 
     fetch(`${ requestFirstUrl }`)
@@ -16000,7 +16045,7 @@ nextButton.addEventListener("click", (e) => {
         console.error("ERROR: ", error)
     });
 
-    secondWord = sourceArray[randomIndex].split(" ")[1];
+    //secondWord = sourceArray[randomIndex].split(" ")[1]; //[THIS WORKED IN PREVIOUS VERSION]
     requestSecondUrl = `https://api.giphy.com/v1/gifs/search?api_key=C45MMlNyrdjBOB9vgOy9BkNBfEhE4UOb&q=${ secondWord }&limit=5&offset=0&lang=en`
     //Fetch request from giphy to provide gif for 2nd word 
     fetch(`${ requestSecondUrl }`)
@@ -16016,9 +16061,9 @@ nextButton.addEventListener("click", (e) => {
         console.error("ERROR: ", error)
     });
     
-    if (titleLength >= 3) {
+    if (titleLength >= 3) { //[THIS WORKED IN PREVIOUS VERSION, change to gifWords.length]
         document.querySelector("#three").classList.remove("hide");
-        thirdWord = sourceArray[randomIndex].split(" ")[2];
+        //thirdWord = sourceArray[randomIndex].split(" ")[2]; //[THIS WORKED IN PREVIOUS VERSION]
         requestThirdUrl = `https://api.giphy.com/v1/gifs/search?api_key=C45MMlNyrdjBOB9vgOy9BkNBfEhE4UOb&q=${ thirdWord }&limit=5&offset=0&lang=en`
         //Fetch request from giphy to provide gif for 3rd word 
         fetch(`${ requestThirdUrl }`)
@@ -16039,10 +16084,10 @@ nextButton.addEventListener("click", (e) => {
         thirdWord = "" 
     }    
 
-    if (titleLength === 4) {
+    if (titleLength === 4) { //[THIS WORKED IN PREVIOUS VERSION, change to gifWords.length]
         document.querySelector("#four").classList.remove("hide");
         document.querySelector("#four").classList.add("giphy-embed");
-        fourthWord = sourceArray[randomIndex].split(" ")[3];
+        //fourthWord = sourceArray[randomIndex].split(" ")[3]; //[THIS WORKED IN PREVIOUS VERSION]
         requestFourthUrl = `https://api.giphy.com/v1/gifs/search?api_key=C45MMlNyrdjBOB9vgOy9BkNBfEhE4UOb&q=${ fourthWord }&limit=5&offset=0&lang=en`
         //Fetch request from giphy to provide gif for 3rd word 
         fetch(`${ requestFourthUrl }`)
@@ -16121,4 +16166,5 @@ newPlayerButton.addEventListener("click", (e) => {
 //COMPLETE: RANDOMIZE CHOICE OF PULL FROM SOURCEARRAY
 
 //GIFs
-//COMPLETE: AUTO RESIZE or FIXED HEIGHT? -- due to embed properties in API, best to just set the same height/width for all iframes and the embedded gif will conform its largest dimension accordingly. 
+//COMPLETE: AUTO RESIZE or FIXED HEIGHT? -- due to embed properties in API, best to just set the same height/width for all iframes and the embedded gif will conform its largest dimension accordingly
+

@@ -19,6 +19,7 @@ h1 {
     display: flex;
     flex-flow: row;
     justify-content: space-between;
+    text-transform: uppercase;
 }
 
 iframe {

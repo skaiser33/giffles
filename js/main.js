@@ -1,3 +1,4 @@
+//SOURCE ARRAYS
 const bookTitles = [
     "2001: A Space Odyssey",
     "A Bend in the River",
@@ -530,7 +531,6 @@ const bookTitles = [
     "Monica",
     "Monkey: A Journey to the West",
     "Moon Palace",
-    "Morvern Callar",
     "Moscow Stations",
     "Mother",
     "Mother's Milk",
@@ -15716,55 +15716,40 @@ const bookTitles = [
         "Zombie",
         "Zombie",
         "Zoo Station",
-    ]
-    
-const weakWords = ["&", "...", "a", "an", "as", "at", "and", "are", "for", "i", "i'm", "in", "into", "on", "is", "it", "its", "of", "that", "the", "their", "to", "we", "with", "you", "your", "youre"]
+    ];
+
+//Array of words and punctuation that will not be converted to gifs and will be provided to player as text    
+const weakWords = ["&", "...", "a", "an", "are", "as", "at", "and", "are", "for", "i", "i'm", "in", "into", "on", "is", "it", "its", "of", "that", "the", "their", "to", "we", "with", "you", "your", "youre"];
 
 
 //SCHEDULE:
 // THU:
-// 
-// Test on laptop
-// check against assignment list
-    // Render in the browser
-    // Be deployed online using Github Project pages.
-    // Your HTML/CSS should pass the HTML5 Validator and CSS Validator
-    // Your JavaScript should be cleanly formatted and not contain any console.logs
-// A README.md file that includes the following sections:
-    //  An embedded screenshot of the app
-    //  List of the Technologies used
-    //  Installation instructions
-    //  Your User stories – who are your users, what do they want and why?
-    //  Your Wireframes – sketches of major views / interfaces in your application
-    //  Descriptions of any Unsolved problems or major hurdles you had to overcome
+
 // Refactor! 
     // (create reset function that does all the hiding)
     // (turn queryselectors and getElementByIds into variables where possible, do all instances at once before defining
     //special characters should be dictated by a variable
     //REFACTOR FETCH REQUESTS INTO A SINGLE FUNCTION WITH NECESSARY PARAMETERS?
+    //can gif frame 4 always be small
+    //gifFrame1-4...convert all dom references to variables and should use a loop when referring to all four, if possible
     // console.error statements should be commented out and getTitle sequence should be reinitiated
 //question mark for iframes on load?
 // separate array storage
 // import * as myData from "./data.js"; //THIS DOESN'T WORK
 // const nameData = require(“./js//data.js”) //THIS DOESN'T WORK [look into require.js program]    
 // DEPLOY
-// CSS FOR MOBILE
-// Cite: https://www.kaggle.com/tmdb/tmdb-movie-metadata, https://www.librarything.com/work/646447, http://www.acclaimedmusic.net/year/alltime_songs_yearsort.htm
-//submit your project as a link on Google Classrooms.
-//With your submission please include any questions you'd like answered, or specific things on which you'd like us to focus when giving feedback.
 // Read thru code and take notes to share during presentation.
 
+//submit your project as a link on Google Classrooms.
+//With your submission please include any questions you'd like answered, or specific things on which you'd like us to focus when giving feedback.
 
-//FUTURE GOAL
-//Can I account for typos and still give a correct answer? [maybe use an || condition to run the same eliminateWords function on player guess and give as corret if that matches to source file]
-
-
-let masterArray, sourceArray, titleArray; 
-let gifWords = [];
-
-//Buttons DOM
+//DOM ASSIGNMENtS
 const timer = document.getElementById("timer");
 const gifContainer = document.querySelector(".gif-container");
+const gifFrame1 = document.getElementById("one");
+const gifFrame2 = document.getElementById("two");
+const gifFrame3 = document.getElementById("three");
+const gifFrame4 = document.getElementById("four");
 const category = document.querySelector("select");
 const nextButton = document.getElementById("next");
 const newClueButton = document.getElementById("newClue");
@@ -15777,30 +15762,36 @@ const playerScore = document.querySelector(".playerScore");
 const howToPlay = document.querySelector(".instructions");
 const newPlayerButton = document.getElementById("newPlayer");
 
-//Variable declarations
-let randomIndex, firstWord, secondWord, thirdWord, fourthWord, requestFirstUrl, requestSecondUrl, requestThirdUrl, gif1Array, gif2Array, gif3Array, gif4array, guess, seconds, timerFunction
-let g = 0; // variable for array index that chooses round of gif's; will need to increment with each Push of "new clues button and reset with each new round
+
+//VARIABLE DECLARATIONS
+let randomIndex, firstWord, secondWord, thirdWord, fourthWord, requestFirstUrl, requestSecondUrl, requestThirdUrl, gif1Array, gif2Array, gif3Array, gif4array, guess, seconds, timerFunction, masterArray, titleArray; 
+let gifWords = []; //words to be converted to gifs will be pushed into this array
+let g = 0; // variable for array index that chooses the round of gifs; will need to increment with each Push of "new clues button and reset with each new round
 let pScore = 0;
 let titleLength = 0;
 
-//Functions
 
+//FUNCTIONS
+
+//Clears the text between gif frames
 const clearBetweenGifs = () => {
     for (x=1; x <= 5; x++) {
         document.getElementById(`pre${ x }`).textContent = ""
     }
-}
+};
 
+//Clears gif frames, text between gif frames, and arrays
 const clearAll = () => {
     document.querySelector("#one").src = ""
     document.querySelector("#two").src = ""
     document.querySelector("#three").src = ""
     document.querySelector("#four").src = "" 
     clearBetweenGifs();
-    gifWords = []
-    titleArray = []
+    gifWords = [];
+    titleArray = [];
 }
 
+//Enlarges gif frames when 3 frames or less are displayed
 const enlargeGifs = () => {
     document.getElementById("one").width="300";
     document.getElementById("two").width="300";
@@ -15812,6 +15803,7 @@ const enlargeGifs = () => {
     document.getElementById("four").height="200";
 }
 
+//Enlarges gif frames when 4 frames are displayed
 const shrinkGifs = () => {
     document.getElementById("one").width="200";
     document.getElementById("two").width="200";
@@ -15823,16 +15815,18 @@ const shrinkGifs = () => {
     document.getElementById("four").height="133";
 }
 
+//After player answers or timer runs out, clears timer & answer input, and toggles hide/show for appropriate elements
 const hideAfterAnswer = () => {
     timer.classList.add("hide");
     clearInterval(timerFunction);
-    answerInput.value = ""          //clear input
+    answerInput.value = "";  
     answerForm.classList.toggle("hide");
     newClueButton.classList.toggle("hide");
     isPlayerCorrect.classList.remove("hide");  
     nextRoundForm.classList.toggle("hide");
 }
 
+//Starts and shows timer; gives protocol for time running out 
 const countDown =() => {
     seconds = 30;
     timerFunction = setInterval(function(){
@@ -15841,22 +15835,21 @@ const countDown =() => {
         seconds--;
         if (seconds < 0) {
             hideAfterAnswer();
-            isPlayerCorrect.innerHTML = `You're a little slow on the draw.<br>The correct answer was <em>${ masterArray[randomIndex] }.</em>`
-            document.querySelector("#one").src="https://giphy.com/embed/1jARfPtdz7eE0"
-            document.querySelector("#two").src="https://giphy.com/embed/1jARfPtdz7eE0"
-            document.querySelector("#three").src="https://giphy.com/embed/1jARfPtdz7eE0"
-            document.querySelector("#four").src="https://giphy.com/embed/1jARfPtdz7eE0"
+            isPlayerCorrect.innerHTML = `You're a little slow on the draw.<br>The correct answer was <em>${ masterArray[randomIndex] }.</em>`;
+            document.querySelector("#one").src="https://giphy.com/embed/1jARfPtdz7eE0";
+            document.querySelector("#two").src="https://giphy.com/embed/1jARfPtdz7eE0";
+            document.querySelector("#three").src="https://giphy.com/embed/1jARfPtdz7eE0";
+            document.querySelector("#four").src="https://giphy.com/embed/1jARfPtdz7eE0";
             clearBetweenGifs();
         }
     }, 1000);
 }
 
-
-
+//Generatees random index, translates/tests title from master array
 const getTitle = () => {
     clearAll();
-    randomIndex = Math.floor(Math.random() * masterArray.length)
-    console.log(masterArray[randomIndex]) // shows the title
+    randomIndex = Math.floor(Math.random() * masterArray.length);
+    // console.log(masterArray[randomIndex]) // logs the full title
     //Parse through each word of title for words that will be translated into gifs, "weak words" that will not, and punctuation 
     titleArray = masterArray[randomIndex].toLowerCase().split(" ");
     for (let i = 0; i < titleArray.length; i++) {
@@ -15882,10 +15875,15 @@ const getTitle = () => {
             }  
         }
     }   
-    console.log(gifWords)
+    // console.log(gifWords)
 }
 
+
+//ON LOAD
 isPlayerCorrect.classList.toggle("hide"); 
+
+
+//EVENT LISTENERS
 
 //Display instructions when clicked
 howToPlay.addEventListener("click", (e) => {
@@ -15906,149 +15904,137 @@ nextButton.addEventListener("click", (e) => {
             break;
         case "songs":
             masterArray = songTitles;
-    }    
+    } ; 
     g = 0;
-    
-    //OLDWAY sourceArray = masterArray.map(eliminateWords);
-    nextButton.value = "Let's Play Another Round!"
+    nextButton.value = "Let's Play Another Round!";
+    //Show/hide appropriate elements
     answerForm.classList.toggle("hide");
     newClueButton.classList.toggle("hide");
     isPlayerCorrect.classList.add("hide");  
     nextRoundForm.classList.toggle("hide");
     newPlayerButton.classList.remove("hide");
 
-    //Chooses random title and format for game
+    //Choose random title and format for game
     getTitle();
+    
     //If title length is too short / too long, pick another title
     while (gifWords.length < 2 || gifWords.length > 4) { // used to be titleLength
         getTitle();
     }
-    //resize iframes for 4 gifs
+    
+    //resize iframes if needed
     (gifWords.length === 4) ? shrinkGifs() : enlargeGifs();
+    //start timer
     countDown();
-    //firstWord = sourceArray[randomIndex].split(" ")[0]; //[THIS WORKED IN PREVIOUS VERSION]
-    requestFirstUrl = `https://api.giphy.com/v1/gifs/search?api_key=C45MMlNyrdjBOB9vgOy9BkNBfEhE4UOb&q=${ gifWords[0] }&limit=5&offset=0&lang=en`
+    //Generate URL for fetch request based on gifWords array
+    requestFirstUrl = `https://api.giphy.com/v1/gifs/search?api_key=C45MMlNyrdjBOB9vgOy9BkNBfEhE4UOb&q=${ gifWords[0] }&limit=5&offset=0&lang=en`;
     //Fetch request from giphy to provide gif for 1st word 
     fetch(`${ requestFirstUrl }`)
     .then((response) => {
         return response.json();
     })
-    //Feed gif #one embed url into iframe #one
+    //Feed gif embed url into iframe #one
     .then((parsedData) => {
         gif1Array = parsedData.data;
         document.querySelector("#one").src = gif1Array[g].embed_url; 
     })
     .catch((error) => {
-        console.error("ERROR: ", error)
+        // console.error("ERROR: ", error)
     });
 
-    //secondWord = sourceArray[randomIndex].split(" ")[1]; //[THIS WORKED IN PREVIOUS VERSION]
-    requestSecondUrl = `https://api.giphy.com/v1/gifs/search?api_key=C45MMlNyrdjBOB9vgOy9BkNBfEhE4UOb&q=${ gifWords[1] }&limit=5&offset=0&lang=en`
-    //Fetch request from giphy to provide gif for 2nd word 
+    //request URL and fetch for second gif
+    requestSecondUrl = `https://api.giphy.com/v1/gifs/search?api_key=C45MMlNyrdjBOB9vgOy9BkNBfEhE4UOb&q=${ gifWords[1] }&limit=5&offset=0&lang=en`;
     fetch(`${ requestSecondUrl }`)
     .then((response) => {
         return response.json();
     })
-    //Feed gif #two embed url into iframe #two
     .then((parsedData) => {
         gif2Array = parsedData.data;
         document.querySelector("#two").src = gif2Array[g].embed_url; 
     })
     .catch((error) => {
-        console.error("ERROR: ", error)
+        // console.error("ERROR: ", error)
     });
-    
-    if (gifWords.length >= 3) { //[THIS WORKED IN PREVIOUS VERSION, change to gifWords.length]
+
+    //request URL and fetch for third gif (if applicable based on gifWords length); hide if not
+    if (gifWords.length >= 3) { 
         document.querySelector("#three").classList.remove("hide");
-        //thirdWord = sourceArray[randomIndex].split(" ")[2]; //[THIS WORKED IN PREVIOUS VERSION]
-        requestThirdUrl = `https://api.giphy.com/v1/gifs/search?api_key=C45MMlNyrdjBOB9vgOy9BkNBfEhE4UOb&q=${ gifWords[2] }&limit=5&offset=0&lang=en`
-        //Fetch request from giphy to provide gif for 3rd word 
+        requestThirdUrl = `https://api.giphy.com/v1/gifs/search?api_key=C45MMlNyrdjBOB9vgOy9BkNBfEhE4UOb&q=${ gifWords[2] }&limit=5&offset=0&lang=en`;
         fetch(`${ requestThirdUrl }`)
         .then((response) => {
             return response.json();
         })
-        //Feed gif #three embed url into iframe #three
         .then((parsedData) => {
             gif3Array = parsedData.data;
             document.querySelector("#three").src = gif3Array[g].embed_url;
         })
         .catch((error) => {
-            console.error("ERROR: ", error)
+            // console.error("ERROR: ", error)
         });
     } else { 
         document.querySelector("#three").classList.add("hide");
         document.querySelector("#three").src = "";
-        thirdWord = "" 
+        thirdWord = ""; 
     }    
-
-    if (gifWords.length === 4) { //[THIS WORKED IN PREVIOUS VERSION, change to gifWords.length]
+    //request URL and fetch for fourth gif (if applicable based on gifWords length); hide if not
+    if (gifWords.length === 4) { 
         document.querySelector("#four").classList.remove("hide");
         document.querySelector("#four").classList.add("giphy-embed");
-        //fourthWord = sourceArray[randomIndex].split(" ")[3]; //[THIS WORKED IN PREVIOUS VERSION]
-        requestFourthUrl = `https://api.giphy.com/v1/gifs/search?api_key=C45MMlNyrdjBOB9vgOy9BkNBfEhE4UOb&q=${ gifWords[3] }&limit=5&offset=0&lang=en`
-        //Fetch request from giphy to provide gif for 3rd word 
+        requestFourthUrl = `https://api.giphy.com/v1/gifs/search?api_key=C45MMlNyrdjBOB9vgOy9BkNBfEhE4UOb&q=${ gifWords[3] }&limit=5&offset=0&lang=en`;
         fetch(`${ requestFourthUrl }`)
         .then((response) => {
             return response.json();
         })
-        //Feed gif #three embed url into iframe #three
         .then((parsedData) => {
             gif4Array = parsedData.data;
             document.querySelector("#four").src = gif4Array[g].embed_url;
         })
         .catch((error) => {
-            console.error("ERROR: ", error)
+            // console.error("ERROR: ", error)
         });
     } else { 
         document.querySelector("#four").classList.remove("giphy-embed"); 
         document.querySelector("#four").classList.add("hide");
         document.querySelector("#four").src = "";
-        fourthWord = "" 
-    }    
-    
-})
+        fourthWord = ""; 
+    }        
+});
 
-//new clues event listener -- updates each value in the fetch request to the next gifs [g++]; variable for array index that chooses round of gif's
+//New clues -- updates array indices of parsed data object to display next round of gifs [g++]; 
 newClueButton.addEventListener("click", (e) => {
     g >= 4 ? g = 0 : g++; 
     document.querySelector("#one").src = gif1Array[g].embed_url;
     document.querySelector("#two").src = gif2Array[g].embed_url;
     if (gifWords.length >= 3) document.querySelector("#three").src = gif3Array[g].embed_url;
-    if (gifWords.length === 4) document.querySelector("#four").src = gif4Array[g].embed_url
-})
+    if (gifWords.length === 4) document.querySelector("#four").src = gif4Array[g].embed_url;
+});
 
 
-//CHECK PLAYER ANSWER AGAINST THE masterARRAY INDEX
+//Is player guesscorrect? check player answer (case-insensitive) against the master array index and allows for alternate correct response that matches the gifWords array re-joined as a string. Display correct/incorrect, increase score if correct, and show/hide appropriate elements.
 answerButton.addEventListener("click", (e) => {
     e.preventDefault();
     guess = answerInput.value;
     hideAfterAnswer();
-    
-    //WRITE IF STATEMENT TO MATCH ANSWER (case insensitive), DISPLAY CORRECT/INCORRECT + NEXT ROUND BUTTON, AND INCREASE SCORE IF CORRECT
-    if(guess.toLowerCase() === masterArray[randomIndex].toLowerCase() || guess.toLowerCase() === gifWords.join(" ")) { //ADD CASE INSENSITIVITY!
-        //console.log("Correct! You earned 100 points, redeemable for food rations in a future dystopian hellscape.");
-        isPlayerCorrect.innerHTML = `Correct! You earned ${ 100 + seconds} points.<br>(redeemable for food rations in a future dystopian hellscape)`
+    if(guess.toLowerCase() === masterArray[randomIndex].toLowerCase() || guess.toLowerCase() === gifWords.join(" ")) { 
+        isPlayerCorrect.innerHTML = `Correct! You earned ${ 100 + seconds} points.<br>(redeemable for food rations in a future dystopian hellscape)`;
         pScore += (100 + seconds);
         playerScore.innerHTML=`Your Score: ${ pScore }`;
         clearBetweenGifs();
-        document.querySelector("#one").src="https://giphy.com/embed/g9582DNuQppxC"
-        document.querySelector("#two").src="https://giphy.com/embed/g9582DNuQppxC"
-        document.querySelector("#three").src="https://giphy.com/embed/g9582DNuQppxC"
-        document.querySelector("#four").src="https://giphy.com/embed/g9582DNuQppxC"
+        document.querySelector("#one").src="https://giphy.com/embed/g9582DNuQppxC";
+        document.querySelector("#two").src="https://giphy.com/embed/g9582DNuQppxC";
+        document.querySelector("#three").src="https://giphy.com/embed/g9582DNuQppxC";
+        document.querySelector("#four").src="https://giphy.com/embed/g9582DNuQppxC";
     } else {
-        //console.log(`Yeah...no. The correct answer was ${ masterArray[randomIndex] }.`);
-        isPlayerCorrect.innerHTML = `Yeah...no.<br>The correct answer was <em>${ masterArray[randomIndex] }.</em>`
+        isPlayerCorrect.innerHTML = `Yeah...no.<br>The correct answer was <em>${ masterArray[randomIndex] }.</em>`;
         clearBetweenGifs();
-        document.querySelector("#one").src="https://giphy.com/embed/1jARfPtdz7eE0"
-        document.querySelector("#two").src="https://giphy.com/embed/1jARfPtdz7eE0"
-        document.querySelector("#three").src="https://giphy.com/embed/1jARfPtdz7eE0"
-        document.querySelector("#four").src="https://giphy.com/embed/1jARfPtdz7eE0"
-        
+        document.querySelector("#one").src="https://giphy.com/embed/1jARfPtdz7eE0";
+        document.querySelector("#two").src="https://giphy.com/embed/1jARfPtdz7eE0";
+        document.querySelector("#three").src="https://giphy.com/embed/1jARfPtdz7eE0";
+        document.querySelector("#four").src="https://giphy.com/embed/1jARfPtdz7eE0";       
     }    
+});
 
-})
-
-//NEW PLAYER / RESET
+//Reset / New Player 
 newPlayerButton.addEventListener("click", (e) => {
     clearAll();
     timer.classList.add("hide");
@@ -16061,15 +16047,4 @@ newPlayerButton.addEventListener("click", (e) => {
     isPlayerCorrect.classList.add("hide");  
     nextRoundForm.classList.remove("hide");
     newPlayerButton.classList.add("hide");  
-    //clear isPlayer
-})
-
-
-
-//COMPLETED:
-//ARRAYS
-//COMPLETE: RANDOMIZE CHOICE OF PULL FROM SOURCEARRAY
-
-//GIFs
-//COMPLETE: AUTO RESIZE or FIXED HEIGHT? -- due to embed properties in API, best to just set the same height/width for all iframes and the embedded gif will conform its largest dimension accordingly
-
+});

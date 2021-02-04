@@ -1,5 +1,6 @@
 body {
-    height: 100vh;
+    height: 90vh;
+
     background: rgb(247, 174, 87);
     margin: 0;
     font-family: 'Big Shoulders Display', cursive;
@@ -28,14 +29,12 @@ header > p {
     margin: 30px;
 }
 
-.container {
-    /* height: 50vh; */
+ .container {
+
     display: flex;
     flex-flow: column;
     align-items: center;
-
 }
-
 .gif-container {
     
     display: flex;
@@ -47,6 +46,7 @@ header > p {
     
 }
 
+
 iframe {
     z-index: 1;
     border: 10px solid black;
@@ -56,7 +56,17 @@ iframe {
     margin-right: 20px;
 }
 
-#nextRoundForm {
+#newClue {
+    font-size: 25px;
+    font-family: 'Big Shoulders Display', cursive;
+    border: 2px solid black;
+    margin: 50px 20px 20px 20px;
+}
+/*
+input {
+    font-size: 25px;
+    font-family: 'Big Shoulders Display', cursive;
+    border: 2px solid black;
 
 }
 
@@ -66,22 +76,9 @@ select {
     margin: 10px 30px;
 }
 
-input {
-    font-size: 25px;
-    font-family: 'Big Shoulders Display', cursive;
-    border: 2px solid black;
-    /* border-radius: 30%; */
-}
-
-button {
-    font-size: 25px;
-    font-family: 'Big Shoulders Display', cursive;
-    border: 2px solid black;
-    /* border-radius: 30%; */
-}
-
 #answ {
     margin: 10px 0px -100px 0;
+    margin-bottom: 100px;
 
 }
 
@@ -89,14 +86,8 @@ button {
     font-size: 20px;
     font-family: 'Potta One', cursive;
     width: 350px;
-    margin: 10px 30px;
+    margin: 10px 30px; */
 }
-
-/* p {
-    font-size: 20px;
-    text-align: center;
-    width: 40%;
-} */
 
 .instructions {
     z-index: 100;
@@ -126,23 +117,6 @@ button {
 small {
     opacity: 0;
     font-size: 15px;
-}
-
-#answ {
-    margin-bottom: 100px;
-}
-
-#newClue {
-    margin: 50px 20px;
-}
-
-/* #newplayer {
-    position: fixed;
-    bottom: 0;
-} */
-
-.playerScore {
-    /* position: absolute; */
 }
 
 .hide {

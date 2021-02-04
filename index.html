@@ -13,18 +13,18 @@
     <link rel="icon" type="image/png" href="favicon.png">
 </head>
 
-<body>
+<body> 
     <header>
         <h1>GIFFLES</h1>
         <h3>A Charades-Style Game</h3>
         <p>Powered by <a href=http://giphy.com target=_blank>Giphy</a></p>
     </header>  
     <div class="container">
-          
+    
 
         <div class="gif-container">
             <p id="pre1"></p>
-            <iframe id="one" title="one" src="./images/question-mark.png" width="300" height="200" frameBorder="0" class="giphy-embed"></iframe>
+            <iframe id="one" title="one" src="" width="300" height="200" frameBorder="0" class="giphy-embed"></iframe>
             <p id="pre2"></p>
             <iframe id="two" title="two" src="" width="300" height="200" frameBorder="0" class="giphy-embed"></iframe>
             <p id="pre3"></p>
@@ -33,6 +33,7 @@
             <iframe id="four" title="four" src="" width="300" height="200" frameBorder="0" class="hide"></iframe>
             <p id="pre5"></p>
         </div>
+
         <button id="newClue" class="hide">New Clues Please!</button>
         <p class="hide" id="is-player-correct"></p>
         
@@ -41,6 +42,7 @@
             <input type="text" id="answer" name="answer">
             <input id="answerButton" type="submit" value="Submit Answer">
         </form>
+
         <form id="nextRoundForm">
             <label for="categories">Choose your category:</label>    
             <select name="categories" id="categories">
@@ -50,11 +52,12 @@
             </select>
             <input id="next" type="submit" value="Let's Play Giffles!">
         </form> 
+
         <div id="score-and-reset">
             <p class="playerScore">Your Score: 0</p>
-
+            <button id="newPlayer" class="hide">New Player / Reset Game</button>
         </div>
-        <button id="newPlayer" class="hide">New Player / Reset Game</button>
+
     </div>  
     
     <div class="instructions">

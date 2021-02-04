@@ -23,12 +23,12 @@ Players may request up to four cycles of new gifs ("clues") during the round for
 ![screenshot right answer](https://i.imgur.com/LmHi38m.png)
 
 ## Technologies Used
--Javascript
--HTML
--CSS
--AJAX
--VSCode
--Google Chrome Developer Tools
+- Javascript
+- HTML
+- CSS
+- AJAX
+- VSCode
+- Google Chrome Developer Tools
 
 ## User Stories
 - As a player, I want my game to recognize correct case-insensitive answers to each Giffle.
@@ -48,7 +48,7 @@ Players may request up to four cycles of new gifs ("clues") during the round for
 ![wireframe results view](https://i.imgur.com/Ib8n035.jpg)
 
 ## Major Hurdles
-- Logistics of arranging words from title to generate gifs without "weak" words (ie: the, a, etc) or punctuation. After a "focus group", I decided that my original strategy of eliminating "weak" words using the replace method made it much mmore difficult for the player to discern the title using just gifs. I ended up restructuring the functionality to a large degree using the split method followed by tests for equality of "weak" words / punctuation using replace. 
+- The logistics of arranging words from title to generate gifs without "weak" words (ie: the, a, etc) or punctuation. After a "focus group", I decided that my original strategy of simply eliminating "weak" words using the replace method made it too difficult for the player to discern the title using just gifs. I ended up restructuring the functionality to a large degree using the split method followed by tests for equality of "weak" words / punctuation using replace. 
 - Responsive styling depending on number of gifs
 - Creating arrays from lists...had surprising difficulty creating CSV files in the proper format with comma separated values (it's in the name!) and quotes around strings
 - Using global variables across multiple js files. Since this didn't impact functionality beyond a possible impact on speed, I decided to relegate this to a future goal and focus on other functionality goals.

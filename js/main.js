@@ -4556,7 +4556,6 @@ const bookTitles = [
         "Super Mario Bros.",
         "Super Size Me",
         "Super Troopers",
-        "Superbabies: Baby Geniuses 2",
         "Superbad",
         "Supercapitalist",
         "Supercross",
@@ -15835,7 +15834,7 @@ const bookTitles = [
         "Zoo Station",
     ]
     
-const weakWords = ["&", "...", "a", "an", "as", "at", "and", "are", "for", "i", "i'm", "in", "into", "on", "is", "it", "its", "of", "that", "the", "to", "we", "with", "you", "your", "youre"]
+const weakWords = ["&", "...", "a", "an", "as", "at", "and", "are", "for", "i", "i'm", "in", "into", "on", "is", "it", "its", "of", "that", "the", "their", "to", "we", "with", "you", "your", "youre"]
 
 
 
@@ -15852,7 +15851,6 @@ const weakWords = ["&", "...", "a", "an", "as", "at", "and", "are", "for", "i", 
 //CSS FOR MOBILE
 
 // WED:
-// Styling 
 // Celebration/taunt gifs for right/wrong answers
 //(start with 3 blank iframes...maybe have a different colored ? in each)
 // Refactor! 
@@ -15862,9 +15860,7 @@ const weakWords = ["&", "...", "a", "an", "as", "at", "and", "are", "for", "i", 
     //REFACTOR FETCH REQUESTS INTO A SINGLE FUNCTION WITH NECESSARY PARAMETERS?
 
 // TUE:
-//check answer against gifWords.join(" ") as an alt check and maybe use the same OR || to also check for the .replace(/[^\w\s]|_/g, "")
 // Style the playerIsCorrect
-// What's the deal with the score and reset button heading too far to the bottom? Make into a div and work with that?
 // Clear iframes when player answer comes up, or maybe make all of the iframes = "Loser"/ "Winner"
 //Can I account for typos and still give a correct answer? [maybe use an || condition to run the same eliminateWords function on player guess and give as corret if that matches to source file]
 // separate array storage
@@ -15883,6 +15879,7 @@ let gifWords = [];
 
  
 //Buttons DOM
+const timer = document.getElementById("timer");
 const gifContainer = document.querySelector(".gif-container");
 const category = document.querySelector("select");
 const nextButton = document.getElementById("next");
@@ -15897,7 +15894,7 @@ const howToPlay = document.querySelector(".instructions");
 const newPlayerButton = document.getElementById("newPlayer");
 
 //Variable declarations
-let randomIndex, firstWord, secondWord, thirdWord, fourthWord, requestFirstUrl, requestSecondUrl, requestThirdUrl, gif1Array, gif2Array, gif3Array, gif4array, guess
+let randomIndex, firstWord, secondWord, thirdWord, fourthWord, requestFirstUrl, requestSecondUrl, requestThirdUrl, gif1Array, gif2Array, gif3Array, gif4array, guess, seconds, timerFunction
 let g = 0; // variable for array index that chooses round of gif's; will need to increment with each Push of "new clues button and reset with each new round
 let pScore = 0;
 let titleLength = 0;
@@ -15913,7 +15910,6 @@ const clearAll = () => {
     for (x=1; x <= 5; x++) {
         document.getElementById(`pre${ x }`).textContent = ""
     }
-    console.log(gifContainer);
     gifWords = []
     titleArray = []
 }
@@ -15940,6 +15936,35 @@ const shrinkGifs = () => {
     document.getElementById("four").height="133";
 }
 
+const hideAfterAnswer = () => {
+    timer.classList.add("hide");
+    clearInterval(timerFunction);
+    answerInput.value = ""          //clear input
+    answerForm.classList.toggle("hide");
+    newClueButton.classList.toggle("hide");
+    isPlayerCorrect.classList.remove("hide");  
+    nextRoundForm.classList.toggle("hide");
+}
+
+const countDown =() => {
+    seconds = 30;
+    timerFunction = setInterval(function(){
+        timer.textContent = `0:${ seconds.toLocaleString('en-US', {minimumIntegerDigits: 2, useGrouping:false}) }`;
+        timer.classList.remove("hide");
+        seconds--;
+        if (seconds < 0) {
+            hideAfterAnswer();
+            isPlayerCorrect.innerHTML = `You're a little slow on the draw.<br>The correct answer was <em>${ masterArray[randomIndex] }.</em>`
+            document.querySelector("#one").src="https://giphy.com/embed/1jARfPtdz7eE0"
+            document.querySelector("#two").src="https://giphy.com/embed/1jARfPtdz7eE0"
+            document.querySelector("#three").src="https://giphy.com/embed/1jARfPtdz7eE0"
+            document.querySelector("#four").src="https://giphy.com/embed/1jARfPtdz7eE0"
+        }
+    }, 1000);
+}
+
+
+
 const getTitle = () => {
     clearAll();
     randomIndex = Math.floor(Math.random() * masterArray.length)
@@ -15958,10 +15983,10 @@ const getTitle = () => {
         }
         //check for punctuation at start and end of words and put betwen gifs, then put 
         if (i <= (titleArray.length-1)) {
-            if (titleArray[i].search(/[.,:!?\(\)&]/) === 0) {
+            if (titleArray[i].search(/[.,:!?\(\)&']/) === 0) {
                 document.getElementById(`pre${ gifWords.length + 1 }`).textContent += ` ${ titleArray[i].charAt(0) }`;
                 gifWords.push(titleArray[i].replace(/[^\w\s]|_/g, ""));
-            } else if (titleArray[i].search(/[.,:!?\(\)]/) === (titleArray[i].length - 1)) {       
+            } else if (titleArray[i].search(/[.,:!?\(\)&']/) === (titleArray[i].length - 1)) {       
                 gifWords.push(titleArray[i].replace(/[^\w\s]|_/g, ""));   
                 document.getElementById(`pre${ gifWords.length + 1 }`).textContent += ` ${ titleArray[i].charAt(titleArray[i].length - 1) }`;  
             } else {
@@ -16012,7 +16037,7 @@ nextButton.addEventListener("click", (e) => {
     }
     //resize iframes for 4 gifs
     (gifWords.length === 4) ? shrinkGifs() : enlargeGifs();
-
+    countDown();
     //firstWord = sourceArray[randomIndex].split(" ")[0]; //[THIS WORKED IN PREVIOUS VERSION]
     requestFirstUrl = `https://api.giphy.com/v1/gifs/search?api_key=C45MMlNyrdjBOB9vgOy9BkNBfEhE4UOb&q=${ gifWords[0] }&limit=5&offset=0&lang=en`
     //Fetch request from giphy to provide gif for 1st word 
@@ -16087,11 +16112,12 @@ nextButton.addEventListener("click", (e) => {
             console.error("ERROR: ", error)
         });
     } else { 
-        document.querySelector("#four").classList.remove("giphy-embed");
+        document.querySelector("#four").classList.remove("giphy-embed"); 
         document.querySelector("#four").classList.add("hide");
         document.querySelector("#four").src = "";
         fourthWord = "" 
     }    
+    
 })
 
 //new clues event listener -- updates each value in the fetch request to the next gifs [g++]; variable for array index that chooses round of gif's
@@ -16103,26 +16129,33 @@ newClueButton.addEventListener("click", (e) => {
     if (gifWords.length === 4) document.querySelector("#four").src = gif4Array[g].embed_url
 })
 
+
 //CHECK PLAYER ANSWER AGAINST THE masterARRAY INDEX
 answerButton.addEventListener("click", (e) => {
     e.preventDefault();
     guess = answerInput.value;
-    answerInput.value = ""          //clear input
-    answerForm.classList.toggle("hide");
-    newClueButton.classList.toggle("hide");
-    isPlayerCorrect.classList.remove("hide");  
-    nextRoundForm.classList.toggle("hide");
+    hideAfterAnswer();
+    
     //WRITE IF STATEMENT TO MATCH ANSWER (case insensitive), DISPLAY CORRECT/INCORRECT + NEXT ROUND BUTTON, AND INCREASE SCORE IF CORRECT
     if(guess.toLowerCase() === masterArray[randomIndex].toLowerCase() || guess.toLowerCase() === gifWords.join(" ")) { //ADD CASE INSENSITIVITY!
         //console.log("Correct! You earned 100 points, redeemable for food rations in a future dystopian hellscape.");
-        isPlayerCorrect.textContent = "Correct! You earned 100 points, redeemable for food rations in a future dystopian hellscape."
-
-        pScore += 100
+        isPlayerCorrect.innerHTML = `Correct! You earned ${ 100 + seconds} points.<br>(redeemable for food rations in a future dystopian hellscape)`
+        pScore += (100 + seconds);
         playerScore.innerHTML=`Your Score: ${ pScore }`;
+        clearAll();
+        document.querySelector("#one").src="https://giphy.com/embed/g9582DNuQppxC"
+        document.querySelector("#two").src="https://giphy.com/embed/g9582DNuQppxC"
+        document.querySelector("#three").src="https://giphy.com/embed/g9582DNuQppxC"
+        document.querySelector("#four").src="https://giphy.com/embed/g9582DNuQppxC"
     } else {
         //console.log(`Yeah...no. The correct answer was ${ masterArray[randomIndex] }.`);
-        isPlayerCorrect.textContent = `Yeah...no. The correct answer was ${ masterArray[randomIndex] }.`
-
+        isPlayerCorrect.innerHTML = `Yeah...no.<br>The correct answer was <em>${ masterArray[randomIndex] }.</em>`
+        clearAll();
+        document.querySelector("#one").src="https://giphy.com/embed/1jARfPtdz7eE0"
+        document.querySelector("#two").src="https://giphy.com/embed/1jARfPtdz7eE0"
+        document.querySelector("#three").src="https://giphy.com/embed/1jARfPtdz7eE0"
+        document.querySelector("#four").src="https://giphy.com/embed/1jARfPtdz7eE0"
+        
     }    
 
 })

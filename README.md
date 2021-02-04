@@ -12,14 +12,19 @@ Players may request up to four cycles of new gifs ("clues") during the round for
 
 ## Screenshots
 
+Landing Page
 ![screenshot landing](https://i.imgur.com/vJar7JF.png)
 
+Instructions
 ![screenshot instructions](https://i.imgur.com/hk6mlTp.png)
 
+During Play
 ![screenshot during play](https://i.imgur.com/9OGal1j.png)
 
+Wrong Answer
 ![screenshot wrong answer](https://i.imgur.com/TY5NPC6.png)
 
+Right Answer
 ![screenshot right answer](https://i.imgur.com/LmHi38m.png)
 
 ## Technologies Used
@@ -43,8 +48,10 @@ Players may request up to four cycles of new gifs ("clues") during the round for
  
 ## Wireframes
 
+Landing View (Wireframe)
 ![wireframe initial landing view](https://i.imgur.com/FGmj9aQ.jpg)
 
+Results View (Wireframe)
 ![wireframe results view](https://i.imgur.com/Ib8n035.jpg)
 
 ## Major Hurdles

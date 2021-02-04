@@ -1,9 +1,16 @@
+html {
+    background:rgb(224, 37, 31); 
+}
+
 body {
     border-top: 10px ridge white;
     /* border-left: 10px ridge white;
     border-right: 10px ridge white; */
+    /* background: rgb(247, 174, 87); */
     height: 90vh;
-    background: rgb(247, 174, 87);
+    background: linear-gradient(to top, rgba(238, 0, 0, 0.4), rgb(255, 159, 41)); 
+    background: -webkit-linear-gradient(to top, rgba(238, 0, 0, 0.4), rgb(255, 159, 41));
+    background: -moz-linear-gradient(to top, rgba(238, 0, 0, 0.4), rgb(255, 159, 41));
     margin: 0;
     font-family: 'Big Shoulders Display', cursive;
     font-size: 30px;
@@ -13,8 +20,7 @@ header {
     position: relative;
     width: 40%;
     margin: 5px auto 10px;
-    /* margin-top: 0px;  */
-    padding; 0;
+    padding: 0;
     text-align: center;
     border: 3px ridge rgb(148, 247, 157);
     border-radius: 90%;
@@ -22,7 +28,6 @@ header {
 
 h1 {
     color: white;
-    /* color: coral; */
 	-webkit-text-stroke-width: 1px;
 	-webkit-text-stroke-color: black;
 	-moz-text-stroke-width: 1px;
@@ -33,15 +38,27 @@ h1 {
 }
 
 h3 {
-    color: rgb(87, 145, 92);
+    /* color: rgb(87, 145, 92); */
+    color: rgb(224, 37, 31); 
+    -webkit-text-stroke-width: .02px;
+	-webkit-text-stroke-color: black;
+	-moz-text-stroke-width: .02px;
+	-moz-text-stroke-color: black;
     font-size: 30px;
     margin: -20px;
 }
 
 header > p {
-    color: rgb(87, 145, 92);
+    /* color: rgb(87, 145, 92); */
+    color: rgb(190, 25, 19); 
     font-size: 20px;
     margin: 30px;
+
+}
+
+header > p > a {
+    text-transform: none;
+    color: rgb(190, 25, 19); 
 }
 
 #timer {
@@ -50,7 +67,7 @@ header > p {
     right: 10px;
 }
 
- .container {
+.container {
 
     display: flex;
     flex-flow: column;
@@ -62,8 +79,6 @@ header > p {
     justify-content: space-between;
     align-items: center;
     text-transform: uppercase;
-    width: 50
-    
 }
 
 
@@ -76,10 +91,6 @@ iframe {
     margin-right: 20px;
 }
 
-/* #nextRoundForm{
-    margin-top: 5px;
-} */
-
 #newClue {
     font-size: 25px;
     font-family: 'Big Shoulders Display', cursive;
@@ -88,13 +99,13 @@ iframe {
 }
 
 #is-player-correct{
+    /* padding: 0 15px;
+    border: 2px dotted rgb(225, 99, 51);
+    border-radius: 20%; 
+    background-color: rgb(106, 172, 80);*/
     font-family: 'Potta One', cursive;
     font-size: 25px; 
     text-align-last: center;
-}
-
-span{
-    font-size: ;
 }
 
 input {
@@ -107,16 +118,8 @@ input {
 select {
     font-size: 22px;
     font-family: 'Potta One', cursive;
-    margin: 0px 30px 10px 30px;
+    margin: 0px 30px 5px 30px;
 }
-
-/*
-#answ {
-    margin: 10px 0px -100px 0;
-    margin-bottom: 100px;
-
-}
-*/
 
 #answer {
     font-size: 20px;
@@ -128,7 +131,6 @@ select {
 #newPlayer {
     font-size: 18px;
     font-family: 'Big Shoulders Display', cursive;
-    /* border: 2px solid black;  */
 } 
 
 .instructions {
@@ -138,10 +140,11 @@ select {
     z-index: 100;
     font-size: .75em;
     color: rgba(255,255,255,1);
+    color: rgb(247, 172, 81);
     background: black;
-    background: linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
-    background: -webkit-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
-    background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+    background: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,.4));
+    background: -webkit-linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,.4));
+    background: -moz-linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,.4));
     padding: 10px;
     line-height: 28px;
     text-align: justify;
@@ -158,7 +161,8 @@ select {
 
 small {
     opacity: 0;
-    font-size: 15px;
+    font-size: 13px;
+    color: white;
 }
 
 .hide {
@@ -166,7 +170,7 @@ small {
 }
 
 .show-description p {
-    height: 250px;
+    height: 270px;
 }
   
 .show-description small {

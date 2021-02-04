@@ -255,7 +255,6 @@ const bookTitles = [
     "Drunkard",
     "Dusklands",
     "Eclipse of the Crescent Moon",
-    "Effi Briest",
     "Elective Affinities",
     "Elementary Particles",
     "Eline Vere",
@@ -466,7 +465,6 @@ const bookTitles = [
     "Like Life",
     "Like Water for Chocolate",
     "Little Women",
-    "Lives of Girls & Women",
     "Living",
     "Locus Solus",
     "Lolita",
@@ -502,7 +500,6 @@ const bookTitles = [
     "Martin Fierro",
     "Mary Barton",
     "Marya",
-    "Mason & Dixon",
     "Matigari",
     "Max Havelaar",
     "Measuring the World",
@@ -1287,7 +1284,6 @@ const bookTitles = [
         "10 Days in a Madhouse",
         "10 Things I Hate About You",
         "102 Dalmatians",
-        "10th & Wolf",
         "12 Angry Men",
         "12 Rounds",
         "12 Years a Slave",
@@ -1306,7 +1302,6 @@ const bookTitles = [
         "200 Cigarettes",
         "2001: A Space Odyssey",
         "2016: Obama's America",
-        "21 & Over",
         "21 Grams",
         "21 Jump Street",
         "22 Jump Street",
@@ -1412,7 +1407,6 @@ const bookTitles = [
         "A Time to Kill",
         "A True Story",
         "A Turtle's Tale: Sammy's Adventures",
-        "A Very Harold & Kumar Christmas",
         "A Very Long Engagement",
         "A View to a Kill",
         "A Walk Among the Tombstones",
@@ -1455,7 +1449,6 @@ const bookTitles = [
         "Agent Cody Banks",
         "Agent Cody Banks 2: Destination London",
         "Agora",
-        "Aimee & Jaguar",
         "Air Bud",
         "Air Force One",
         "Airborne",
@@ -1468,7 +1461,6 @@ const bookTitles = [
         "Alatriste",
         "Albert Nobbs",
         "Albino Alligator",
-        "Alex & Emma",
         "Alex Cross",
         "Alexander",
         "Alexander and the Terrible, Horrible, No Good, Very Bad Day",
@@ -1565,7 +1557,6 @@ const bookTitles = [
         "Anderson's Cross",
         "Angel Eyes",
         "Angela's Ashes",
-        "Angels & Demons",
         "Animal House",
         "Animals",
         "Animals United",
@@ -1626,8 +1617,6 @@ const bookTitles = [
         "At First Sight",
         "ATL",
         "Atlantis: The Lost Empire",
-        "Atlas Shrugged Part II",
-        "Atlas Shrugged Part III: Who is John Galt?",
         "Atonement",
         "Attack the Block",
         "August",
@@ -1700,7 +1689,6 @@ const bookTitles = [
         "Bathory: Countess of Blood",
         "Batman",
         "Batman",
-        "Batman & Robin",
         "Batman Begins",
         "Batman Forever",
         "Batman Returns",
@@ -1776,8 +1764,6 @@ const bookTitles = [
         "Big Mommas: Like Father, Like Son",
         "Big Trouble",
         "Big Trouble in Little China",
-        "Bill & Ted's Bogus Journey",
-        "Bill & Ted's Excellent Adventure",
         "Billy Elliot",
         "Birdman",
         "Birth",
@@ -1871,7 +1857,6 @@ const bookTitles = [
         "Breaking Upwards",
         "Brick Lane",
         "Brick Mansions",
-        "Bride & Prejudice",
         "Bride of Chucky",
         "Bride Wars",
         "Bridesmaids",
@@ -1965,15 +1950,12 @@ const bookTitles = [
         "Catch Me If You Can",
         "Catch That Kid",
         "Catch-22",
-        "Cats & Dogs",
-        "Cats & Dogs 2 : The Revenge of Kitty Galore",
         "Cats Don't Dance",
         "Catwoman",
         "Cavite",
         "Cecil B. Demented",
         "Cedar Rapids",
         "Celebrity",
-        "Celeste & Jesse Forever",
         "Cellular",
         "Censored Voices",
         "Center Stage",
@@ -2029,7 +2011,6 @@ const bookTitles = [
         "Christmas Mail",
         "Christmas with the Kranks",
         "Chronicle",
-        "Chuck & Buck",
         "Cinco de Mayo: La Batalla",
         "Cinderella",
         "Cinderella Man",
@@ -2316,7 +2297,6 @@ const bookTitles = [
         "Double Take",
         "Doubt",
         "Doug's 1st Movie",
-        "Down & Out With The Dolls",
         "Down in the Valley",
         "Down Terrace",
         "Down to Earth",
@@ -2369,10 +2349,7 @@ const bookTitles = [
         "Dum Maaro Dum",
         "Duma",
         "Dumb and Dumber",
-        "Dumb and Dumber To",
-        "Dumb and Dumberer: When Harry Met Lloyd",
         "Dune",
-        "Dungeons & Dragons: Wrath of the Dragon God",
         "Duplex",
         "Duplicity",
         "Dutch Kills",
@@ -2417,7 +2394,6 @@ const bookTitles = [
         "Ella Enchanted",
         "Elling",
         "Elmer Gantry",
-        "Elsa & Fred",
         "Elysium",
         "Elza",
         "Emma",
@@ -2444,7 +2420,6 @@ const bookTitles = [
         "Eraser",
         "Eraserhead",
         "Erin Brockovich",
-        "Ernest & Celestine",
         "Escape from Alcatraz",
         "Escape from L.A.",
         "Escape from New York",
@@ -2487,7 +2462,6 @@ const bookTitles = [
         "Extreme Measures",
         "Extreme Movie",
         "Extreme Ops",
-        "Extremely Loud & Incredibly Close",
         "Eye for an Eye",
         "Eye of the Beholder",
         "Eye of the Dolphin",
@@ -2519,7 +2493,6 @@ const bookTitles = [
         "Fast Times at Ridgemont High",
         "Faster",
         "Fat Albert",
-        "Fat, Sick & Nearly Dead",
         "Fatal Attraction",
         "Fateless",
         "Fear and Loathing in Las Vegas",
@@ -2561,8 +2534,6 @@ const bookTitles = [
         "Fish Tank",
         "Fiza",
         "Flags of Our Fathers",
-        "Flame & Citron",
-        "Flash Gordon",
         "Flash of Genius",
         "Flashdance",
         "Flatliners",
@@ -2813,7 +2784,6 @@ const bookTitles = [
         "Hanna",
         "Hannah Montana: The Movie",
         "Hannibal Rising",
-        "Hansel & Gretel: Witch Hunters",
         "Hansel and Gretel Get Baked",
         "Happily N'Ever After",
         "Happiness",
@@ -2828,8 +2798,6 @@ const bookTitles = [
         "Hardball",
         "Hardflip",
         "Harley Davidson and the Marlboro Man",
-        "Harold & Kumar Escape from Guantanamo Bay",
-        "Harold & Kumar Go to White Castle",
         "Harper",
         "Harriet the Spy",
         "Harrison Montgomery",
@@ -2867,7 +2835,6 @@ const bookTitles = [
         "Hellboy",
         "Hellboy II: The Golden Army",
         "Hellraiser",
-        "Henry & Me",
         "Henry V",
         "Her",
         "Her Cry: La Llorona Investigation",
@@ -2900,7 +2867,6 @@ const bookTitles = [
         "Highlander: The Final Dimension",
         "Highway",
         "History of the World: Part I",
-        "Hit & Run",
         "Hitch",
         "Hitman",
         "Hits",
@@ -2967,7 +2933,6 @@ const bookTitles = [
         "How to Deal",
         "How to Fall in Love",
         "How to Lose a Guy in 10 Days",
-        "How to Lose Friends & Alienate People",
         "How to Train Your Dragon",
         "How to Train Your Dragon 2",
         "Howard the Duck",
@@ -2980,7 +2945,6 @@ const bookTitles = [
         "Hum To Mohabbat Karega",
         "Human Traffic",
         "Hurricane Streets",
-        "Hustle & Flow",
         "I Am Legend",
         "I Am Love",
         "I Am Number Four",
@@ -3027,12 +2991,10 @@ const bookTitles = [
         "Iguana",
         "Illuminata",
         "Imaginary Heroes",
-        "Imagine Me & You",
         "Imagine That",
         "Immortals",
         "Impact Point",
         "Impostor",
-        "In & Out",
         "In Bruges",
         "In Cold Blood",
         "In Dreams",
@@ -3095,7 +3057,6 @@ const bookTitles = [
         "Invasion U.S.A.",
         "Invictus",
         "Ip Man 3",
-        "Ira & Abby",
         "Iraq for Sale: The War Profiteers",
         "Iris",
         "Iron Man",
@@ -3173,7 +3134,6 @@ const bookTitles = [
         "Joyful Noise",
         "Judgment at Nuremberg",
         "Julia",
-        "Julie & Julia",
         "Juliet and Alfa Romeo",
         "Jumper",
         "Jumping the Broom",
@@ -3198,7 +3158,6 @@ const bookTitles = [
         "Kangaroo Jack",
         "Kansas City",
         "Karachi se Lahore",
-        "Kate & Leopold",
         "Katy Perry: Part of Me",
         "Keanu",
         "Keeping the Faith",
@@ -3210,7 +3169,6 @@ const bookTitles = [
         "Kick-Ass",
         "Kick-Ass 2",
         "Kickboxer: Vengeance",
-        "Kicking & Screaming",
         "Kicks",
         "Kids",
         "Kill Bill: Vol. 1",
@@ -3290,7 +3248,6 @@ const bookTitles = [
         "Left Behind",
         "Legal Eagles",
         "Legally Blonde",
-        "Legally Blonde 2: Red, White & Blonde",
         "Legend",
         "Legend of a Rabbit",
         "Legend of the Guardians: The Owls of Ga'Hoole",
@@ -3322,7 +3279,6 @@ const bookTitles = [
         "Lights Out",
         "Like Crazy",
         "Like Mike",
-        "Lilo & Stitch",
         "Lilya 4-ever",
         "Limbo",
         "Lincoln",
@@ -3372,8 +3328,6 @@ const bookTitles = [
         "Lost in Translation",
         "Lost Souls",
         "Lottery Ticket",
-        "Love & Basketball",
-        "Love & Other Drugs",
         "Love Actually",
         "Love and Death on Long Island",
         "Love and Other Catastrophes",
@@ -3387,7 +3341,6 @@ const bookTitles = [
         "Love Stinks",
         "Love the Coopers",
         "Love's Abiding Joy",
-        "Lovely & Amazing",
         "Lovely, Still",
         "Loving Annabelle",
         "Lucky Break",
@@ -3453,7 +3406,6 @@ const bookTitles = [
         "Margin Call",
         "Maria Full of Grace",
         "Marie Antoinette",
-        "Marley & Me",
         "Marmaduke",
         "Married Life",
         "Mars Attacks!",
@@ -3479,7 +3431,6 @@ const bookTitles = [
         "Me and You and Everyone We Know",
         "Me Before You",
         "Me You and Five Bucks",
-        "Me, Myself & Irene",
         "Mean Creek",
         "Mean Girls",
         "Mean Machine",
@@ -3594,14 +3545,12 @@ const bookTitles = [
         "Moulin Rouge!",
         "Movie 43",
         "Mozart's Sister",
-        "Mr. & Mrs. Smith",
         "Mr. 3000",
         "Mr. Bean's Holiday",
         "Mr. Church",
         "Mr. Deeds",
         "Mr. Holland's Opus",
         "Mr. Nice Guy",
-        "Mr. Peabody & Sherman",
         "Mr. Popper's Penguins",
         "Mr. Smith Goes to Washington",
         "Mr. Turner",
@@ -3832,7 +3781,6 @@ const bookTitles = [
         "Paa",
         "Pacific Rim",
         "Paddington",
-        "Pain & Gain",
         "Paint Your Wagon",
         "Pale Rider",
         "Palo Alto",
@@ -3856,7 +3804,6 @@ const bookTitles = [
         "Partition",
         "Party Monster",
         "Passchendaele",
-        "Pat Garrett & Billy the Kid",
         "Patch Adams",
         "Pathology",
         "Patriot Games",
@@ -3868,7 +3815,6 @@ const bookTitles = [
         "Payback",
         "Paycheck",
         "PCU",
-        "Peace, Propaganda & the Promised Land",
         "Peaceful Warrior",
         "Pearl Harbor",
         "Peeples",
@@ -3876,8 +3822,6 @@ const bookTitles = [
         "Penguins of Madagascar",
         "Penitentiary",
         "People I Know",
-        "Percy Jackson & the Olympians: The Lightning Thief",
-        "Percy Jackson: Sea of Monsters",
         "Perfect Cowboy",
         "Perfume: The Story of a Murderer",
         "Perrier's Bounty",
@@ -3946,7 +3890,6 @@ const bookTitles = [
         "Premium Rush",
         "Premonition",
         "Pretty Woman",
-        "Pride & Prejudice",
         "Pride and Glory",
         "Pride and Prejudice and Zombies",
         "Priest",
@@ -4115,7 +4058,6 @@ const bookTitles = [
         "Robin Hood: Prince of Thieves",
         "RoboCop",
         "RoboCop 3",
-        "Robot & Frank",
         "Robots",
         "Rock of Ages",
         "Rock Star",
@@ -4125,12 +4067,10 @@ const bookTitles = [
         "Rocky",
         "Rocky Balboa",
         "Rodeo Girl",
-        "Roger & Me",
         "Role Models",
         "Roll Bounce",
         "Rollerball",
-        "Romance & Cigarettes",
-        "Romeo + Juliet",
+        "Romeo and Juliet",
         "Romeo Is Bleeding",
         "Romeo Must Die",
         "Ronin",
@@ -4367,7 +4307,6 @@ const bookTitles = [
         "Small Apartments",
         "Small Soldiers",
         "Small Time Crooks",
-        "Smiling Fish & Goat On Fire",
         "Smilla's Sense of Snow",
         "Smoke Signals",
         "Smokin' Aces",
@@ -4412,7 +4351,6 @@ const bookTitles = [
         "Soul Survivors",
         "Sound of My Voice",
         "Source Code",
-        "South Park: Bigger, Longer & Uncut",
         "Southland Tales",
         "Southpaw",
         "Space Battleship Yamato",
@@ -4484,7 +4422,6 @@ const bookTitles = [
         "Stardust",
         "Stargate: The Ark of Truth",
         "Starship Troopers",
-        "Starsky & Hutch",
         "Starsuckers",
         "State Fair",
         "State of Play",
@@ -4608,7 +4545,6 @@ const bookTitles = [
         "Tammy",
         "Tangled",
         "Tango",
-        "Tango & Cash",
         "Tank Girl",
         "Tanner Hall",
         "Tarnation",
@@ -4652,7 +4588,6 @@ const bookTitles = [
         "The Adventures of Huck Finn",
         "The Adventures of Pinocchio",
         "The Adventures of Pluto Nash",
-        "The Adventures of Rocky & Bullwinkle",
         "The Adventures of Sharkboy and Lavagirl",
         "The Adventures of Tintin",
         "The Age of Adaline",
@@ -5046,7 +4981,6 @@ const bookTitles = [
         "The Howling",
         "The Hudsucker Proxy",
         "The Hunchback of Notre Dame",
-        "The Hundred-Foot Journey",
         "The Hunger Games",
         "The Hunger Games: Catching Fire",
         "The Hunger Games: Mockingjay - Part 1",
@@ -5072,7 +5006,6 @@ const bookTitles = [
         "The Importance of Being Earnest",
         "The Impossible",
         "The In Crowd",
-        "The Incredible Burt Wonderstone",
         "The Incredible Hulk",
         "The Incredibles",
         "The Incredibly True Adventure of Two Girls In Love",
@@ -5340,7 +5273,6 @@ const bookTitles = [
         "The Postman Always Rings Twice",
         "The Prestige",
         "The Prince",
-        "The Prince & Me",
         "The Prince of Egypt",
         "The Prince of Tides",
         "The Princess and the Frog",
@@ -5687,7 +5619,6 @@ const bookTitles = [
         "Total Recall",
         "Touching the Void",
         "Tower Heist",
-        "Town & Country",
         "Toy Story",
         "Toy Story 2",
         "Toy Story 3",
@@ -5795,7 +5726,6 @@ const bookTitles = [
         "Unsullied",
         "Untraceable",
         "Up",
-        "Up Close & Personal",
         "Up in the Air",
         "Urban Legend",
         "Urban Legends: Final Cut",
@@ -5866,7 +5796,6 @@ const bookTitles = [
         "Wasabi",
         "Watchmen",
         "Water",
-        "Water & Power",
         "Water for Elephants",
         "Waterloo",
         "Waterworld",
@@ -5880,10 +5809,6 @@ const bookTitles = [
         "We Were Soldiers",
         "We're No Angels",
         "We're the Millers",
-        "Weekend",
-        "Welcome Home Roscoe Jenkins",
-        "Welcome to Collinwood",
-        "Welcome to Mooseport",
         "Welcome to the Dollhouse",
         "Welcome to the Rileys",
         "Welcome to the Sticks",
@@ -5897,7 +5822,6 @@ const bookTitles = [
         "What Just Happened",
         "What Lies Beneath",
         "What Planet Are You From?",
-        "What the #$*! Do We (K)now!?",
         "What to Expect When You're Expecting",
         "What Women Want",
         "What's Eating Gilbert Grape",
@@ -5910,7 +5834,6 @@ const bookTitles = [
         "When Did You Last See Your Father?",
         "When Harry Met Sally...",
         "When the Cat's Away",
-        "When the Game Stands Tall",
         "When the Lights Went Out",
         "Where the Heart Is",
         "Where the Truth Lies",
@@ -5942,7 +5865,7 @@ const bookTitles = [
         "Wild Things",
         "Wild Wild West",
         "Willard",
-        "Willy Wonka & the Chocolate Factory",
+        "Willy Wonka and the Chocolate Factory",
         "Wimbledon",
         "Win a Date with Tad Hamilton!",
         "Wind Walkers",
@@ -6076,7 +5999,6 @@ const bookTitles = [
         "(You Gotta) Fight for Your Right (To Party!)",
         "(You Make Me Feel Like) A Natural Woman",
         "(You Make Me Feel Like) A Natural Woman",
-        "(You're My) Soul & Inspiration",
         "(You're the) Devil in Disguise",
         "(Your Love Keeps Lifting Me) Higher and Higher",
         "1 Thing",
@@ -6226,14 +6148,7 @@ const bookTitles = [
         "A Whiter Shade of Pale",
         "A Wolf at the Door",
         "A World Without Love",
-        "A-Punk",
-        "A-Tisket, A-Tasket",
-        "A.M. 180",
-        "A&E",
-        "Abacab",
         "Abandoned Love",
-        "Abarájame",
-        "ABC",
         "Abducted",
         "Aboriginal Mix / Digeridoo",
         "About a Girl",
@@ -6531,7 +6446,6 @@ const bookTitles = [
         "Another Side to Mrs. Quill",
         "Another Way to Die",
         "Another World",
-        "Ante Up (Robbing-Hoodz Theory) / Ante Up (Remix) feat. Busta Rhymes, Remy Ma & Teflon [2001]",
         "Antidote",
         "Antisocial",
         "Antmusic",
@@ -6987,7 +6901,6 @@ const bookTitles = [
         "Block Rockin' Beats",
         "Blockbuster",
         "Blockbuster Night Part 1",
-        "Blood & Thunder",
         "Blood and Roses",
         "Blood Bank",
         "Blood of Eden",
@@ -7531,7 +7444,7 @@ const bookTitles = [
         "Chum",
         "Church of the Poison Mind",
         "Ciervos",
-        "Cigarettes & Alcohol",
+        "Cigarettes and Alcohol",
         "Cigarettes and Chocolate Milk",
         "Cinnamon Girl",
         "Cissy Strut",
@@ -7581,7 +7494,7 @@ const bookTitles = [
         "Cocoon",
         "Coffee",
         "Coffee",
-        "Coffee & TV",
+        "Coffee and TV",
         "Coffin for Head of State, Pt. 2",
         "Cold As Ice",
         "Cold Sweat",
@@ -7648,7 +7561,7 @@ const bookTitles = [
         "Concorde",
         "Concrete Jungle",
         "Concrete Schoolyard",
-        "Concubine/Fault & Fracture",
+        "Concubine/Fault and Fracture",
         "Coney Island Baby",
         "Confetti",
         "Confide in Me",
@@ -7961,7 +7874,7 @@ const bookTitles = [
         "Devil Gate Drive",
         "Devil Got My Woman",
         "Devil in a New Dress",
-        "Devil with a Blue Dress On & Good Golly Miss Molly",
+        "Devil with a Blue Dress On and Good Golly Miss Molly",
         "Devil Woman",
         "Devil's Pie",
         "Devils and Dust",
@@ -8347,7 +8260,7 @@ const bookTitles = [
         "Elephant Stone",
         "Elevation",
         "Elevator Love Letter",
-        "Elevators (Me & You)",
+        "Elevators (Me and You)",
         "Ellipsis",
         "Eloise",
         "Elusive Butterfly",
@@ -8384,7 +8297,6 @@ const bookTitles = [
         "Enter, Evening (Soft Line Structure)",
         "Entertain",
         "Entertainment!",
-        "Entre dos tierras",
         "Epic",
         "Epitaph",
         "Eple",
@@ -8931,8 +8843,6 @@ const bookTitles = [
         "Girlfriend",
         "Girlfriend / Damn, dis-moi",
         "Girlfriend in a Coma",
-        "Girls & Boys",
-        "Girls & Boys",
         "Girls in Their Summer Clothes",
         "Girls Just Want to Have Fun",
         "Girls on Film",
@@ -10336,7 +10246,7 @@ const bookTitles = [
         "J'attendrai",
         "J'suis snob",
         "Ja funmi",
-        "Jack & Diane",
+        "Jack and Diane",
         "Jack Your Body",
         "Jack-Ass",
         "Jackie Blue",
@@ -10494,7 +10404,6 @@ const bookTitles = [
         "Just One of the Guys",
         "Just Out of Reach (Of My Two Empty Arms)",
         "Just the Two of Us",
-        "Just the Two of Us/'97 Bonnie & Clyde",
         "Just the Way You Are",
         "Just to Be with You",
         "Just to Get a Rep",
@@ -10566,7 +10475,6 @@ const bookTitles = [
         "Killing Me Softly",
         "Killing Me Softly with His Song",
         "Kim",
-        "Kim & Jessie",
         "Kindred",
         "King",
         "King Heroin",
@@ -10807,7 +10715,6 @@ const bookTitles = [
         "Life on Mars?",
         "Life's a Bitch",
         "Life's Been Good",
-        "Life's Little Ups & Downs",
         "Life's What You Make It",
         "Lifestyle",
         "Lift Every Voice and Sing",
@@ -10818,7 +10725,7 @@ const bookTitles = [
         "Lightnin' Strikes",
         "Lightning Bolt",
         "Lightning Crashes",
-        "Lights & Music",
+        "Lights and Music",
         "Lights Out",
         "Lights Out",
         "Like a Boy",
@@ -10974,7 +10881,7 @@ const bookTitles = [
         "Louisiana 1927",
         "Louxor, j'adore",
         "Love",
-        "Love & Hate",
+        "Love and Hate",
         "Love Action (I Believe in Love)",
         "Love and Affection",
         "Love and Happiness",
@@ -11242,7 +11149,6 @@ const bookTitles = [
         "Matchbox",
         "Material Girl",
         "Mathilde",
-        "Matthew & Son",
         "Matty Groves",
         "Max",
         "Maxim's I",
@@ -11253,10 +11159,6 @@ const bookTitles = [
         "Maybellene",
         "Mayonaise",
         "Mbube",
-        "Me & Bobby McGee",
-        "Me & Michael",
-        "Me & My Dog",
-        "Me & U",
         "Me and Bobby McGee",
         "Me and Giuliani Down by the Schoolyard (A True Story)",
         "Me and Julio Down by the School Yard",
@@ -11966,7 +11868,6 @@ const bookTitles = [
         "Olympians",
         "Omaha",
         "On",
-        "On & On",
         "On a Plain",
         "On a Ragga Tip",
         "On a Rope",
@@ -12123,7 +12024,6 @@ const bookTitles = [
         "Outshined",
         "Outside",
         "Outstanding",
-        "Over & Over Again (Lost & Found)",
         "Over and Over",
         "Over Everything",
         "Over the Hills and Far Away",
@@ -12305,7 +12205,6 @@ const bookTitles = [
         "Piece of My Heart",
         "Pienso En Tu Mirá (Cap.3: Celos)",
         "Pillow Talk",
-        "Pills & Soap",
         "Pilot",
         "Pinball Wizard",
         "Pineola",
@@ -12364,7 +12263,6 @@ const bookTitles = [
         "Poison Arrow",
         "Poison Ivy",
         "Poker Face",
-        "Police & Thieves",
         "Police and Thieves",
         "Policy of Truth",
         "Polish Girl",
@@ -12562,7 +12460,6 @@ const bookTitles = [
         "Raingurl",
         "Rainin' in My Heart",
         "Raining Blood",
-        "Rainy Day Women #12 & 35",
         "Rainy Night in Georgia",
         "Ramble On",
         "Ramblin' Gamblin' Man",
@@ -12761,12 +12658,6 @@ const bookTitles = [
         "Roam",
         "Roast Fish and Corn Bread",
         "Roc Boys (And the Winner Is)…",
-        "Rock 'N' Roll Fantasy",
-        "Rock 'n' Roll High School",
-        "Rock 'n' Roll Outlaw",
-        "Rock 'n' Roll Star",
-        "Rock 'n' Roll Suicide",
-        "Rock & Roll Lullaby",
         "Rock and Roll",
         "Rock and Roll",
         "Rock and Roll Ain't Noise Pollution",
@@ -12812,7 +12703,6 @@ const bookTitles = [
         "Rockin' in Rhythm",
         "Rockin' in the Free World",
         "Rockin' It",
-        "Rockin' Pneumonia & the Boogie Woogie Flu",
         "Rockin' Roll Baby",
         "Rockit",
         "Rocks",
@@ -13084,7 +12974,6 @@ const bookTitles = [
         "Seven Year Ache",
         "Seventeen",
         "Seventeen Years",
-        "Sex & Drugs & Rock & Roll",
         "Sex and Candy",
         "Sex Beat",
         "Sex Bomb",
@@ -13475,7 +13364,6 @@ const bookTitles = [
         "Sorry (I Ran All the Way Home)",
         "Sorry Seems to Be the Hardest Word",
         "Sorry Somehow",
-        "Sorted for E's & Wizz",
         "SOS",
         "Soul Bossa Nova",
         "Soul Deep",
@@ -13758,7 +13646,6 @@ const bookTitles = [
         "Sucker D.J.'s",
         "Sucker MC's",
         "Sudbury Saturday Night",
-        "Suds & Soda",
         "Sue (Or in a Season of Crime)",
         "Suedehead",
         "Suedi",
@@ -13777,7 +13664,7 @@ const bookTitles = [
         "Suge",
         "Suicide Blonde",
         "Suicide Is Painless (Theme from M*A*S*H)",
-        "Suit & Tie",
+        "Suit and Tie",
         "Suite: Judy Blue Eyes",
         "Sultans of Swing",
         "Summer",
@@ -14068,7 +13955,6 @@ const bookTitles = [
         "Thank You (Falettinme Be Mice Elf Agin)",
         "Thanks for the Memory",
         "That Don't Impress Me Much",
-        "That Is Rock & Roll",
         "That Lady",
         "That Lucky Old Sun",
         "That Old Black Magic",
@@ -14214,7 +14100,6 @@ const bookTitles = [
         "The First Cut Is the Deepest",
         "The First Picture of You",
         "The First Time Ever I Saw Your Face",
-        "The Fish Cheer & I-Feel-Like-I'm-Fixin'-To-Die-Rag",
         "The Fixer",
         "The Flame",
         "The Fly",
@@ -15024,7 +14909,6 @@ const bookTitles = [
         "Up the Junction",
         "Up Where We Belong",
         "Up with People",
-        "Up, Up & Away",
         "Upgrade U",
         "Upon This Tidal Wave of Young Blood",
         "Uprising",
@@ -15837,47 +15721,47 @@ const bookTitles = [
 const weakWords = ["&", "...", "a", "an", "as", "at", "and", "are", "for", "i", "i'm", "in", "into", "on", "is", "it", "its", "of", "that", "the", "their", "to", "we", "with", "you", "your", "youre"]
 
 
-
-
-
-
 //SCHEDULE:
 // THU:
-//TIMER? Modify scoring
-// Cite: https://www.kaggle.com/tmdb/tmdb-movie-metadata, https://www.librarything.com/work/646447, http://www.acclaimedmusic.net/year/alltime_songs_yearsort.htm
-//Sound for correct answer? Funny gif to make fun of player if they get the wrong answer and celebratory gif if right.
-//Avoid repeats in same game? by modifying all arrays (in which case i'd need to reset each new player) or better solution available?
-// DEPLOY
-//CSS FOR MOBILE
-
-// WED:
-// Celebration/taunt gifs for right/wrong answers
-//(start with 3 blank iframes...maybe have a different colored ? in each)
+// 
+// Test on laptop
+// check against assignment list
+    // Render in the browser
+    // Be deployed online using Github Project pages.
+    // Your HTML/CSS should pass the HTML5 Validator and CSS Validator
+    // Your JavaScript should be cleanly formatted and not contain any console.logs
+// A README.md file that includes the following sections:
+    //  An embedded screenshot of the app
+    //  List of the Technologies used
+    //  Installation instructions
+    //  Your User stories – who are your users, what do they want and why?
+    //  Your Wireframes – sketches of major views / interfaces in your application
+    //  Descriptions of any Unsolved problems or major hurdles you had to overcome
 // Refactor! 
     // (create reset function that does all the hiding)
     // (turn queryselectors and getElementByIds into variables where possible, do all instances at once before defining
     //special characters should be dictated by a variable
     //REFACTOR FETCH REQUESTS INTO A SINGLE FUNCTION WITH NECESSARY PARAMETERS?
-
-// TUE:
-// Style the playerIsCorrect
-// Clear iframes when player answer comes up, or maybe make all of the iframes = "Loser"/ "Winner"
-//Can I account for typos and still give a correct answer? [maybe use an || condition to run the same eliminateWords function on player guess and give as corret if that matches to source file]
+    // console.error statements should be commented out and getTitle sequence should be reinitiated
+//question mark for iframes on load?
 // separate array storage
 // import * as myData from "./data.js"; //THIS DOESN'T WORK
-// const nameData = require(“./js//data.js”) //THIS DOESN'T WORK [look into require.js program]
+// const nameData = require(“./js//data.js”) //THIS DOESN'T WORK [look into require.js program]    
+// DEPLOY
+// CSS FOR MOBILE
+// Cite: https://www.kaggle.com/tmdb/tmdb-movie-metadata, https://www.librarything.com/work/646447, http://www.acclaimedmusic.net/year/alltime_songs_yearsort.htm
+//submit your project as a link on Google Classrooms.
+//With your submission please include any questions you'd like answered, or specific things on which you'd like us to focus when giving feedback.
+// Read thru code and take notes to share during presentation.
 
 
+//FUTURE GOAL
+//Can I account for typos and still give a correct answer? [maybe use an || condition to run the same eliminateWords function on player guess and give as corret if that matches to source file]
 
 
 let masterArray, sourceArray, titleArray; 
 let gifWords = [];
 
-//ELIMINATE eliminateWORDS??????!!!!
-// const eliminateWords = (masterTitle) => {return masterTitle.toLowerCase().replace(/ a | an | in | of | the | with /g, " ").replace(/a |an |in |of |the |with /g, " ")};
- 
-
- 
 //Buttons DOM
 const timer = document.getElementById("timer");
 const gifContainer = document.querySelector(".gif-container");
@@ -15900,16 +15784,19 @@ let pScore = 0;
 let titleLength = 0;
 
 //Functions
+
+const clearBetweenGifs = () => {
+    for (x=1; x <= 5; x++) {
+        document.getElementById(`pre${ x }`).textContent = ""
+    }
+}
+
 const clearAll = () => {
     document.querySelector("#one").src = ""
     document.querySelector("#two").src = ""
     document.querySelector("#three").src = ""
     document.querySelector("#four").src = "" 
-    //gifContainer.querySelectorAll("iframe").src = ""
-    //gifContainer.querySelectorAll("p").textContent = "" //DOESN'T SEEM TO BE WORKING, COME BACK AND TRBLSHOOT
-    for (x=1; x <= 5; x++) {
-        document.getElementById(`pre${ x }`).textContent = ""
-    }
+    clearBetweenGifs();
     gifWords = []
     titleArray = []
 }
@@ -15959,6 +15846,7 @@ const countDown =() => {
             document.querySelector("#two").src="https://giphy.com/embed/1jARfPtdz7eE0"
             document.querySelector("#three").src="https://giphy.com/embed/1jARfPtdz7eE0"
             document.querySelector("#four").src="https://giphy.com/embed/1jARfPtdz7eE0"
+            clearBetweenGifs();
         }
     }, 1000);
 }
@@ -16142,7 +16030,7 @@ answerButton.addEventListener("click", (e) => {
         isPlayerCorrect.innerHTML = `Correct! You earned ${ 100 + seconds} points.<br>(redeemable for food rations in a future dystopian hellscape)`
         pScore += (100 + seconds);
         playerScore.innerHTML=`Your Score: ${ pScore }`;
-        clearAll();
+        clearBetweenGifs();
         document.querySelector("#one").src="https://giphy.com/embed/g9582DNuQppxC"
         document.querySelector("#two").src="https://giphy.com/embed/g9582DNuQppxC"
         document.querySelector("#three").src="https://giphy.com/embed/g9582DNuQppxC"
@@ -16150,7 +16038,7 @@ answerButton.addEventListener("click", (e) => {
     } else {
         //console.log(`Yeah...no. The correct answer was ${ masterArray[randomIndex] }.`);
         isPlayerCorrect.innerHTML = `Yeah...no.<br>The correct answer was <em>${ masterArray[randomIndex] }.</em>`
-        clearAll();
+        clearBetweenGifs();
         document.querySelector("#one").src="https://giphy.com/embed/1jARfPtdz7eE0"
         document.querySelector("#two").src="https://giphy.com/embed/1jARfPtdz7eE0"
         document.querySelector("#three").src="https://giphy.com/embed/1jARfPtdz7eE0"
@@ -16163,6 +16051,8 @@ answerButton.addEventListener("click", (e) => {
 //NEW PLAYER / RESET
 newPlayerButton.addEventListener("click", (e) => {
     clearAll();
+    timer.classList.add("hide");
+    clearInterval(timerFunction);
     pScore = 0;
     playerScore.innerHTML=`Your Score: ${ pScore }`;
     nextButton.value = "Let's Play Giffles!"

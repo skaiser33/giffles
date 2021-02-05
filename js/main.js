@@ -15835,7 +15835,7 @@ const respondToError = () => {
 const getTitle = () => {
     clearAll();
     randomIndex = Math.floor(Math.random() * masterArray.length);
-    console.log(masterArray[randomIndex]) // logs the full title
+    // console.log(masterArray[randomIndex]) // logs the full title
 
     //Parse through each word of title for words that will be translated into gifs, "weak words" that will not, and punctuation 
     titleArray = masterArray[randomIndex].toLowerCase().split(" ");

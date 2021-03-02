@@ -1,7 +1,7 @@
 # GIFFLES
 
 ## Deployed At:
-https://skaiser33.github.io/project1_api_dashboard/
+https://skaiser33.github.io/giffles/
 
 ## Description
 Giffles is a charades-style game that incorporates gifs as clues using the Giphy API. The player chooses a category (movie, song, or book) and guesses the title  based on the series of gifs that are displayed. 

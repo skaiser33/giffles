@@ -1,4 +1,4 @@
-//SOURCE ARRAYS
+//SOURCE ARRAYS (actual code begins at line 15,715)
 const bookTitles = [
     "2001: A Space Odyssey",
     "A Bend in the River",

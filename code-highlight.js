@@ -1,4 +1,7 @@
-/* The snippet is taken from the main.js file of this repo, which houses a gif-based, charades-style trivia game in which the user guesses movie, book, or song titles. 
+/* 
+The snippet below is taken from the main.js file of this repo.
+
+The "Giffles" front-end-only project is a gif-based, charades-style trivia game in which the user guesses movie, book, or song titles. 
 
 Each word of the title generates a single gif and the user guesses the title based on the series of gif's (powered by the Giphy API). 
 
